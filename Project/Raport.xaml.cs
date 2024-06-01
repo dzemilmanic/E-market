@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Project
 {
     /// <summary>
-    /// Interaction logic for Sidebar.xaml
+    /// Interaction logic for Raport.xaml
     /// </summary>
-    public partial class Sidebar : UserControl
+    public partial class Raport : Page
     {
-        public Sidebar()
+        public Raport()
         {
             InitializeComponent();
         }

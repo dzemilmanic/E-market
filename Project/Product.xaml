@@ -1,0 +1,53 @@
+﻿<Page x:Class="Project.Product"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Product"
+      Background="White">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.RowSpan="3"  Background="Black">
+            <Image Source="Images/logo.png" Height="100" Width="100" Margin="10" HorizontalAlignment="Center"/>
+            <Button Content="Nova narudžbina" Margin="10"/>
+            <Button Content="Proizvodi" Margin="10"/>
+            <Button Content="Kontakt" Margin="10"/>
+            <Button Content="Izveštaj" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="Dodaj/ažuriraj proizvode" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+                FontWeight="Bold" Padding="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal">
+            <TextBlock Text="Naziv proizvoda:" VerticalAlignment="Center" Margin="5,0,5,0"/>
+            <TextBox x:Name="txtProductName" Margin="5,0,5,0" Width="100" Height="30"/>
+            <TextBlock Text="Cena proizvoda:" VerticalAlignment="Center" Margin="5,0,5,0"/>
+            <TextBox x:Name="txtProductPrice" Margin="5,0,5,0" Width="50" Height="30"/>
+            <TextBlock Text="Kolicina proizvoda:" VerticalAlignment="Center" Margin="5,0,5,0"/>
+            <TextBox x:Name="txtProductQuantity" Width="50" Margin="5,0,5,0" Height="30"/>
+            <Button Content="Dodaj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" />
+        </StackPanel>
+
+        <ListView x:Name="lvProducts" Grid.Row="2" Grid.Column="1" Margin="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Name}" Width="120"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Price}" Width="70"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Quantity}" Width="70"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
