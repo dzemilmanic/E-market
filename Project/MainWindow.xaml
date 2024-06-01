@@ -6,7 +6,38 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" >
+            <TextBlock Text="Kreiraj narudžbinu" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+                FontWeight="Bold" Padding="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Odaberi proizvod:" VerticalAlignment="Center" Margin="20,0,10,0"/>
+            <ComboBox x:Name="comboBoxProizvodi" DisplayMemberPath="Naziv" Width="200"/>
+            <TextBlock Text="Količina:" VerticalAlignment="Center" Margin="20,0,10,0"/>
+            <TextBox x:Name="textBoxKolicina" Width="50" Margin="10,0,10,0" Height="20"/>
+            <Button Content="Dodaj proizvod" Style="{StaticResource ButtonStyle}" Tag="120" />
+        </StackPanel>
+        <ListView Grid.Row="2" x:Name="listViewNarudzbine" Margin="0,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Kupac" DisplayMemberBinding="{Binding Kupac.Naziv}" Width="120"/>
+                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding Proizvod.Naziv}" Width="120"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Proizvod.Cena}" Width="60"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
+            <Button x:Name="btnObradaNarudz" Content="Obradi narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120"/>
+            <Button x:Name="btnOtkazNarudz" Content="Otkaži narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120"/>
+        </StackPanel>
     </Grid>
 </Window>

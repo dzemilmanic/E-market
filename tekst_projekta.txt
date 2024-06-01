@@ -1,0 +1,51 @@
+Sistem za vođenje prodaje omogućava efikasno praćenje prodajnih aktivnosti, upravljanje proizvodima i komunikaciju sa kupcima. Korisnicima pruža alate za kreiranje i praćenje narudžbina, upravljanje proizvodima i komunikaciju sa kupcima.
+
+ 
+
+**Hijerarhija klasa:**
+
+- **Proizvod:** Predstavlja proizvod koji se prodaje, sa informacijama kao što su naziv, cena i dostupna količina.
+
+- **Kupac:** Osoba ili firma koja vrši kupovinu proizvoda.
+
+- **Narudžbina:** Zahtev za kupovinu određenih proizvoda od strane kupca.
+
+- **Prodavac:** Osoba ili firma koja prodaje proizvode.
+
+- **SistemZaUpravljanjeProdajom:** Glavna klasa koja upravlja procesom prodaje i komunikacijom sa kupcima.
+
+ 
+
+**Funkcionalnosti:**
+
+- **Kreiranje i praćenje narudžbina:** Korisnici mogu kreirati nove narudžbine za proizvode i pratiti njihov status.
+
+- **Upravljanje proizvodima:** Omogućava korisnicima dodavanje novih proizvoda, ažuriranje njihovih cena i količina.
+
+- **Interfejs za komunikaciju sa kupcima:** Pruža alate za komunikaciju sa kupcima putem emaila, telefona ili društvenih mreža.
+
+- **Analiza prodaje:** Generisanje izveštaja o prodaji proizvoda i performansama prodavaca.
+
+ 
+
+**Relacije među klasama:**
+
+- **Narudžbina i Proizvod:** Svaka narudžbina sadrži određene proizvode koji se kupuju.
+
+- **Narudžbina i Kupac:** Narudžbina je vezana za određenog kupca koji je izvršio kupovinu.
+
+- **Narudžbina i Prodavac:** Prodavac je odgovoran za obradu i isporuku narudžbine.
+
+- **Proizvod i Prodavac:** Prodavac je zadužen za prodaju određenih proizvoda.
+
+ 
+
+**GUI zahtevi:**
+
+- Kreiranje i pregled narudžbina sa detaljima o proizvodima i kupcima.
+
+- Dodavanje i ažuriranje proizvoda u inventaru.
+
+- Interfejs za komunikaciju sa kupcima putem emaila ili društvenih mreža.
+
+- Generisanje izveštaja o prodaji i performansama prodavaca.

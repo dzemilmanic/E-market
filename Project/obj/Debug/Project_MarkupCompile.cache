@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Project\obj\Debug\
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\
 Project
 none
 false
 DEBUG;TRACE
-C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Project\App.xaml
-1219584333
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\App.xaml
+3-1255362169
 
-6-502434485
+7-1266610209
 13-1310406943
-MainWindow.xaml;
+Login.xaml;MainWindow.xaml;SendMessage.xaml;
 
-True
+False
 
