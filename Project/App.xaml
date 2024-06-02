@@ -25,5 +25,27 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Button" x:Key="ButtonStyleBar">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#B2BEB5"/>
+            <Setter Property="Margin" Value="1,5"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
+    
 </Application>

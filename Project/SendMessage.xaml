@@ -7,13 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SendMessage"
-      Background="White">
+      Background="White"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -24,22 +21,16 @@
             <TextBlock Text="Pošalji e-mail" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
         FontWeight="Bold" Padding="10"/>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.RowSpan="4"  Background="Black">
-            <Image Source="Images/logo.png" Height="100" Width="100" Margin="10" HorizontalAlignment="Center"/>
-            <Button Content="Nova narudžbina" Margin="10"/>
-            <Button Content="Proizvodi" Margin="10"/>
-            <Button Content="Kontakt" Margin="10"/>
-            <Button Content="Izveštaj" Margin="10"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <TextBlock Margin="5" Text="Unesite e-mail:"/>
             <TextBox Margin="5" Padding="0,5" Width="550" BorderThickness="0,0,0,1"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" >
             <TextBlock Margin="5" Text="Unesite poruku:"/>
             <TextBox Margin="5" Padding="0,5" Width="550" BorderThickness="1,1,1,1"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="1">
+        <StackPanel Orientation="Vertical" Grid.Row="3" >
             <Button Content="Posalji e-mail" Style="{StaticResource ButtonStyle}" Tag="150" />
         </StackPanel>
 

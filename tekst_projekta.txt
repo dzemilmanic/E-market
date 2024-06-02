@@ -1,4 +1,5 @@
-Sistem za vođenje prodaje omogućava efikasno praćenje prodajnih aktivnosti, upravljanje proizvodima i komunikaciju sa kupcima. Korisnicima pruža alate za kreiranje i praćenje narudžbina, upravljanje proizvodima i komunikaciju sa kupcima.
+Sistem za vođenje prodaje omogućava efikasno praćenje prodajnih aktivnosti, upravljanje proizvodima i komunikaciju sa kupcima. 
+Korisnicima pruža alate za kreiranje i praćenje narudžbina, upravljanje proizvodima i komunikaciju sa kupcima.
 
  
 

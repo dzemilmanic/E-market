@@ -20,3 +20,7 @@ C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\App.baml
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Product.g.cs
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Product.baml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Order.g.cs
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Raport.g.cs
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Order.baml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Raport.baml
