@@ -27,5 +27,8 @@ namespace Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NarudzbinaProizvod> NarudzbinaProizvod { get; set; }
+        public string ProductName { get; internal set; }
+        public string ProductPrice { get; internal set; }
+        public string ProductQuantity { get; internal set; }
     }
 }

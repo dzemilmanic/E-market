@@ -46,7 +46,7 @@ namespace Project
             }
             else
             {
-                Product p = new Product
+                Proizvod p = new Proizvod
                 {
                     ProductName = txtProductName.Text.Trim(),
                     ProductPrice = txtProductPrice.Text.Trim(),
@@ -56,8 +56,6 @@ namespace Project
                 context.SaveChanges();
                 MessageBox.Show("Uspesno ste dodali novi proizvod");
 
-                // Pozivanje događaja kada je kategorija dodata
-                CategoryAdded?.Invoke(this, EventArgs.Empty);
 
             }
         }

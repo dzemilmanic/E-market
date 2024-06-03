@@ -14,6 +14,7 @@
         <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Narud__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proda__3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proiz__4222D4EF" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.Users" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

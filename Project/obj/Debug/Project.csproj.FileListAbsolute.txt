@@ -26,3 +26,9 @@ C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Raport.baml
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Home.g.cs
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Home.baml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Project_Content.g.cs
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.dll
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.xml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Project.csproj.Up2Date

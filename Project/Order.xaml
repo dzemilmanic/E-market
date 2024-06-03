@@ -31,7 +31,7 @@
             <ComboBox x:Name="comboBoxProizvodi" DisplayMemberPath="Naziv" Width="200"/>
             <TextBlock Text="Količina:" VerticalAlignment="Center" Margin="20,0,10,0"/>
             <TextBox x:Name="textBoxKolicina" Width="50" Margin="10,0,10,0" Height="20"/>
-            <Button Content="Dodaj proizvod" Style="{StaticResource ButtonStyle}" Tag="120" />
+            <Button Content="Dodaj proizvod" Style="{StaticResource ButtonStyle}" Tag="120" Click="AddProduct"/>
         </StackPanel>
         <ListView Grid.Row="2" Grid.Column="1" x:Name="listViewNarudzbine" Margin="0,10">
             <ListView.View>
