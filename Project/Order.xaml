@@ -38,8 +38,8 @@
                 <GridView>
                     <GridViewColumn Header="Kupac" DisplayMemberBinding="{Binding Kupac.Naziv}" Width="120"/>
                     <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding Proizvod.Naziv}" Width="120"/>
-                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Proizvod.Cena}" Width="60"/>
                     <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Proizvod.Cena}" Width="60"/>
                     <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="60"/>
                 </GridView>
             </ListView.View>

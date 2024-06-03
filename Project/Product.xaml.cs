@@ -40,23 +40,31 @@ namespace Project
             {
                 MessageBox.Show("Morate uneti cenu proizvoda");
             }
+            else if (!decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
+            {
+                MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
+                return;
+            }
             else if (String.IsNullOrEmpty(txtProductQuantity.Text))
             {
                 MessageBox.Show("Morate uneti kolicinu proizvoda");
+            }
+            else if (!int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
+            {
+                MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
+                return;
             }
             else
             {
                 Proizvod p = new Proizvod
                 {
-                    ProductName = txtProductName.Text.Trim(),
-                    ProductPrice = txtProductPrice.Text.Trim(),
-                    ProductQuantity = txtProductQuantity.Text.Trim(),
+                    Naziv = txtProductName.Text.Trim(),
+                    Cena = cena,
+                    Kolicina = kolicina
                 };
                 context.Proizvod.Add(p);
                 context.SaveChanges();
                 MessageBox.Show("Uspesno ste dodali novi proizvod");
-
-
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,13 @@ namespace Project
     /// </summary>
     public partial class Order : Page
     {
+        public ObservableCollection<NarudzbinaProizvod> narudzbinaProizvodi {  get; set; }
         public Order()
         {
             InitializeComponent();
+            narudzbinaProizvodi = new ObservableCollection<NarudzbinaProizvod>();
             LoadProducts();
+            listViewNarudzbine.ItemsSource = narudzbinaProizvodi;
         }
         private void LoadProducts()
         {
@@ -38,6 +42,7 @@ namespace Project
         }
         private void AddProduct(object sender, RoutedEventArgs e)
         {
+            
             if (comboBoxProizvodi.SelectedItem == null)
             {
                 MessageBox.Show("Izaberite artikal iz liste");
@@ -56,13 +61,25 @@ namespace Project
                 using (var context = new SALES_SYSTEMEntities2())
                 {
                     var product = context.Proizvod.SingleOrDefault(p => p.ProizvodID == selectedProduct.ProizvodID);
-
                     if (product != null)
                     {
                         if (inputQuantity > product.Kolicina)
                         {
                             MessageBox.Show("Uneta količina je veća od dostupne");
                         }
+                        else
+                        {
+                            string nazivProizvoda = product.Naziv;
+                            var novaStavka = new NarudzbinaProizvod
+                            {
+                                ProizvodID = product.ProizvodID,
+                                Kolicina = inputQuantity,
+                                Cena = product.Cena,
+                                Proizvod = product
+                            };
+                            narudzbinaProizvodi.Add(novaStavka);
+                        }
+                       
                     }
                     else
                     {
