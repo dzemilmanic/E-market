@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a9a98313c1e49eabff384b1a8325d3d" Name="Diagram1">
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.Kupac" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.Narudzbina" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.NarudzbinaProizvod" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.Prodavac" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SALES_SYSTEMModel.Proizvod" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Kupac__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Narud__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proda__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proiz__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

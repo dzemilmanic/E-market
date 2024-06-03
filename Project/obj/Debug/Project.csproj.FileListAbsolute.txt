@@ -24,3 +24,5 @@ C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Raport.g.cs
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Order.baml
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Raport.baml
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Home.g.cs
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Home.baml

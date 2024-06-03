@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SALES_SYSTEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kupac">
+          <Key>
+            <PropertyRef Name="KupacID" />
+          </Key>
+          <Property Name="KupacID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Narudzbina">
+          <Key>
+            <PropertyRef Name="NarudzbinaID" />
+          </Key>
+          <Property Name="NarudzbinaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatumNarudzbine" Type="datetime" Nullable="false" />
+          <Property Name="KupacID" Type="int" Nullable="false" />
+          <Property Name="ProdavacID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NarudzbinaProizvod">
+          <Key>
+            <PropertyRef Name="NarudzbinaID" />
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="NarudzbinaID" Type="int" Nullable="false" />
+          <Property Name="ProizvodID" Type="int" Nullable="false" />
+          <Property Name="Kolicina" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prodavac">
+          <Key>
+            <PropertyRef Name="ProdavacID" />
+          </Key>
+          <Property Name="ProdavacID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="ProizvodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Kolicina" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Narudzbin__Kupac__3D5E1FD2">
+          <End Role="Kupac" Type="Self.Kupac" Multiplicity="1" />
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kupac">
+              <PropertyRef Name="KupacID" />
+            </Principal>
+            <Dependent Role="Narudzbina">
+              <PropertyRef Name="KupacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Narud__412EB0B6">
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="1" />
+          <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbina">
+              <PropertyRef Name="NarudzbinaID" />
+            </Principal>
+            <Dependent Role="NarudzbinaProizvod">
+              <PropertyRef Name="NarudzbinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Proda__3E52440B">
+          <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="1" />
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodavac">
+              <PropertyRef Name="ProdavacID" />
+            </Principal>
+            <Dependent Role="Narudzbina">
+              <PropertyRef Name="ProdavacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Proiz__4222D4EF">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Principal>
+            <Dependent Role="NarudzbinaProizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SALES_SYSTEMModelStoreContainer">
+          <EntitySet Name="Kupac" EntityType="Self.Kupac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudzbina" EntityType="Self.Narudzbina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NarudzbinaProizvod" EntityType="Self.NarudzbinaProizvod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prodavac" EntityType="Self.Prodavac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Narudzbin__Kupac__3D5E1FD2" Association="Self.FK__Narudzbin__Kupac__3D5E1FD2">
+            <End Role="Kupac" EntitySet="Kupac" />
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Narud__412EB0B6" Association="Self.FK__Narudzbin__Narud__412EB0B6">
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+            <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Proda__3E52440B" Association="Self.FK__Narudzbin__Proda__3E52440B">
+            <End Role="Prodavac" EntitySet="Prodavac" />
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Proiz__4222D4EF" Association="Self.FK__Narudzbin__Proiz__4222D4EF">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SALES_SYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kupac">
+          <Key>
+            <PropertyRef Name="KupacID" />
+          </Key>
+          <Property Name="KupacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Kupac__3D5E1FD2" FromRole="Kupac" ToRole="Narudzbina" />
+        </EntityType>
+        <EntityType Name="Narudzbina">
+          <Key>
+            <PropertyRef Name="NarudzbinaID" />
+          </Key>
+          <Property Name="NarudzbinaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatumNarudzbine" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KupacID" Type="Int32" Nullable="false" />
+          <Property Name="ProdavacID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kupac" Relationship="Self.FK__Narudzbin__Kupac__3D5E1FD2" FromRole="Narudzbina" ToRole="Kupac" />
+          <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__412EB0B6" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
+          <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__3E52440B" FromRole="Narudzbina" ToRole="Prodavac" />
+        </EntityType>
+        <EntityType Name="NarudzbinaProizvod">
+          <Key>
+            <PropertyRef Name="NarudzbinaID" />
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="NarudzbinaID" Type="Int32" Nullable="false" />
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" />
+          <Property Name="Kolicina" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Narud__412EB0B6" FromRole="NarudzbinaProizvod" ToRole="Narudzbina" />
+          <NavigationProperty Name="Proizvod" Relationship="Self.FK__Narudzbin__Proiz__4222D4EF" FromRole="NarudzbinaProizvod" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Prodavac">
+          <Key>
+            <PropertyRef Name="ProdavacID" />
+          </Key>
+          <Property Name="ProdavacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Proda__3E52440B" FromRole="Prodavac" ToRole="Narudzbina" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ProizvodID" />
+          </Key>
+          <Property Name="ProizvodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Kolicina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Proiz__4222D4EF" FromRole="Proizvod" ToRole="NarudzbinaProizvod" />
+        </EntityType>
+        <Association Name="FK__Narudzbin__Kupac__3D5E1FD2">
+          <End Role="Kupac" Type="Self.Kupac" Multiplicity="1" />
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kupac">
+              <PropertyRef Name="KupacID" />
+            </Principal>
+            <Dependent Role="Narudzbina">
+              <PropertyRef Name="KupacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Narud__412EB0B6">
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="1" />
+          <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbina">
+              <PropertyRef Name="NarudzbinaID" />
+            </Principal>
+            <Dependent Role="NarudzbinaProizvod">
+              <PropertyRef Name="NarudzbinaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Proda__3E52440B">
+          <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="1" />
+          <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodavac">
+              <PropertyRef Name="ProdavacID" />
+            </Principal>
+            <Dependent Role="Narudzbina">
+              <PropertyRef Name="ProdavacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbin__Proiz__4222D4EF">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Principal>
+            <Dependent Role="NarudzbinaProizvod">
+              <PropertyRef Name="ProizvodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SALES_SYSTEMEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kupac" EntityType="Self.Kupac" />
+          <EntitySet Name="Narudzbina" EntityType="Self.Narudzbina" />
+          <EntitySet Name="NarudzbinaProizvod" EntityType="Self.NarudzbinaProizvod" />
+          <EntitySet Name="Prodavac" EntityType="Self.Prodavac" />
+          <EntitySet Name="Proizvod" EntityType="Self.Proizvod" />
+          <AssociationSet Name="FK__Narudzbin__Kupac__3D5E1FD2" Association="Self.FK__Narudzbin__Kupac__3D5E1FD2">
+            <End Role="Kupac" EntitySet="Kupac" />
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Narud__412EB0B6" Association="Self.FK__Narudzbin__Narud__412EB0B6">
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+            <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Proda__3E52440B" Association="Self.FK__Narudzbin__Proda__3E52440B">
+            <End Role="Prodavac" EntitySet="Prodavac" />
+            <End Role="Narudzbina" EntitySet="Narudzbina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbin__Proiz__4222D4EF" Association="Self.FK__Narudzbin__Proiz__4222D4EF">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SALES_SYSTEMModelStoreContainer" CdmEntityContainer="SALES_SYSTEMEntities2">
+          <EntitySetMapping Name="Kupac">
+            <EntityTypeMapping TypeName="SALES_SYSTEMModel.Kupac">
+              <MappingFragment StoreEntitySet="Kupac">
+                <ScalarProperty Name="KupacID" ColumnName="KupacID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudzbina">
+            <EntityTypeMapping TypeName="SALES_SYSTEMModel.Narudzbina">
+              <MappingFragment StoreEntitySet="Narudzbina">
+                <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
+                <ScalarProperty Name="DatumNarudzbine" ColumnName="DatumNarudzbine" />
+                <ScalarProperty Name="KupacID" ColumnName="KupacID" />
+                <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NarudzbinaProizvod">
+            <EntityTypeMapping TypeName="SALES_SYSTEMModel.NarudzbinaProizvod">
+              <MappingFragment StoreEntitySet="NarudzbinaProizvod">
+                <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prodavac">
+            <EntityTypeMapping TypeName="SALES_SYSTEMModel.Prodavac">
+              <MappingFragment StoreEntitySet="Prodavac">
+                <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvod">
+            <EntityTypeMapping TypeName="SALES_SYSTEMModel.Proizvod">
+              <MappingFragment StoreEntitySet="Proizvod">
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

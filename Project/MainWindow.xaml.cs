@@ -23,11 +23,14 @@ namespace Project
         public MainWindow()
         {
             InitializeComponent();
+            tbOption.Text = "";
+            Home h = new Home();
+            showPage.Content = h;
         }
 
-        private void btnPocetna(object sender, RoutedEventArgs e)
+        private void btnHome(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "Home";
+            tbOption.Text = "";
 
             if (showPage.Content != null)
             {
@@ -37,6 +40,54 @@ namespace Project
             Home h = new Home();
             showPage.Content = h;
         }
+        private void btnOrder(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = "";
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            Order o = new Order();
+            showPage.Content = o;
+        }
+        private void btnProduct(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = "";
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            Product p = new Product();
+            showPage.Content = p;
+        }
+        private void btnSendMess(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = "";
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            SendMessage s = new SendMessage();
+            showPage.Content = s;
+        }
+        private void btnRaport(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = "";
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            Raport r = new Raport();
+            showPage.Content = r;
+        }
     }
-    }
+    
 }

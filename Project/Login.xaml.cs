@@ -23,5 +23,27 @@ namespace Project
         {
             InitializeComponent();
         }
+
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (isValidUser(tbUsername.Text, tbPassword.Password) == false)
+            {
+                MessageBox.Show("Uneli ste pogrešno korisničko ime ili lozinku");
+            }
+            else
+            {
+                this.Hide();
+                MainWindow mw = new MainWindow();
+                mw.Show();
+                this.Close();
+            }
+        }
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        
     }
 }

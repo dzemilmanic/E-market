@@ -27,7 +27,7 @@
             <TextBox x:Name="txtProductPrice" Margin="5,0,5,0" Width="50" Height="30"/>
             <TextBlock Text="Kolicina proizvoda:" VerticalAlignment="Center" Margin="5,0,5,0"/>
             <TextBox x:Name="txtProductQuantity" Width="50" Margin="5,0,5,0" Height="30"/>
-            <Button Content="Dodaj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" />
+            <Button Content="Dodaj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" Click="btnAddProduct"/>
         </StackPanel>
 
         <ListView x:Name="lvProducts" Grid.Row="2" Margin="5">

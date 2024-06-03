@@ -19,7 +19,7 @@
         </Border.Effect>
         <StackPanel Orientation="Vertical"
                     Margin="20">
-            <TextBlock Text="Login" 
+            <TextBlock Text="Prijavi se" 
                        FontSize="25"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Top"
@@ -33,28 +33,31 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Username" 
+                <TextBlock Text="Korisničko ime" 
                    Grid.Row="0"
                    Margin="0,15"
                    HorizontalAlignment="Left"/>
                 <TextBox Grid.Column="1"
                   Grid.Row="1"
+                  x:Name="tbUsername"
                   Padding="0,5"
                   Width="255"
                   BorderThickness="0,0,0,1"
                   HorizontalAlignment="Left"/>
-                <TextBlock Text="Password" 
+                <TextBlock Text="Lozinka" 
                    Grid.Row="2"
                    Margin="0,15"
                    HorizontalAlignment="Left"/>
                 <PasswordBox Grid.Row="3"
-                      Padding="0,5"                           
+                      Padding="0,5"
+                      x:Name="tbPassword"
                       Width="255"
                       BorderThickness="0,0,0,1"
                       HorizontalAlignment="Left"/>
             </Grid>
-            <Button x:Name="LoginBtn" 
-                    Content="Login" 
+            <Button x:Name="LoginBtn"
+                    Click="LoginBtn_Click"
+                    Content="Prijavi se" 
                     Foreground="White"
                     Background="Black"
                     Margin="0,25"
