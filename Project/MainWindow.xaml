@@ -14,12 +14,12 @@
 
         <StackPanel Background="#36454F">
             <Image Source="Images/logo.png" Height="100" Width="100" Margin="10" HorizontalAlignment="Center"/>
-            <Button Content="Početna" Style="{StaticResource ButtonStyleBar}" Tag="100"/>
-            <Button Content="Nova narudžbina" Style="{StaticResource ButtonStyleBar}" Tag="100"/>
+            <Button Content="Početna" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnPocetna"/>
+            <Button Content="Nova narudžbina" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="Button_Click"/>
             <Button Content="Proizvodi" Style="{StaticResource ButtonStyleBar}" Tag="100"/>
             <Button Content="Kontakt" Style="{StaticResource ButtonStyleBar}" Tag="100"/>
             <Button Content="Izveštaj" Style="{StaticResource ButtonStyleBar}" Tag="100"/>
         </StackPanel>
-
+        <Frame x:Name="showPage" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

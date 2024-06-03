@@ -25,6 +25,18 @@ namespace Project
             InitializeComponent();
         }
 
-        
+        private void btnPocetna(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = "Home";
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            Home h = new Home();
+            showPage.Content = h;
+        }
+    }
     }
 }
