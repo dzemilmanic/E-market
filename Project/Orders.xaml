@@ -1,0 +1,24 @@
+﻿<Page x:Class="Project.Orders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Orders">
+
+    <Grid>
+        <ListView x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Narudzbina" DisplayMemberBinding="{Binding NarudzbinaID}" Width="120"/>
+                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding ProizvodID}" Width="120"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="60"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="60"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

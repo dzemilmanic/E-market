@@ -32,3 +32,5 @@ C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.xml
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Project.csproj.Up2Date
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Orders.g.cs
+C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\obj\Debug\Orders.baml

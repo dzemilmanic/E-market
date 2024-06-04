@@ -52,6 +52,18 @@ namespace Project
             Order o = new Order();
             showPage.Content = o;
         }
+        private void btnOrders(object sender, RoutedEventArgs e)
+        {
+            tbOption.Text = Login.LoggedIn;
+
+            if (showPage.Content != null)
+            {
+                ((Page)showPage.Content).NavigationService.RemoveBackEntry();
+            }
+
+            Orders h = new Orders();
+            showPage.Content = h;
+        }
         private void btnProduct(object sender, RoutedEventArgs e)
         {
             tbOption.Text = Login.LoggedIn;
