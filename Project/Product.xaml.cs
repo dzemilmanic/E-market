@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -19,16 +21,17 @@ namespace Project
     /// <summary>
     /// Interaction logic for Product.xaml
     /// </summary>
-    public partial class Product : Page
+    public partial class Product : Page, INotifyPropertyChanged
     {
+
+        private ObservableCollection<Proizvod> proizvodi { get; set; }
         public Product()
         {
             InitializeComponent();
+            LoadProducts();
         }
-        SALES_SYSTEMEntities2 context = new SALES_SYSTEMEntities2();
-        public string ProductName { get; private set; }
-        public string ProductQuantity { get; private set; }
-        public string ProductPrice { get; private set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void btnAddProduct(object sender, RoutedEventArgs e)
         {
@@ -62,10 +65,31 @@ namespace Project
                     Cena = cena,
                     Kolicina = kolicina
                 };
-                context.Proizvod.Add(p);
-                context.SaveChanges();
+                proizvodi.Add(p);
+
+                using (var context = new SALES_SYSTEMEntities2())
+                {
+                    context.Proizvod.Add(p);
+                    context.SaveChanges();
+                }
                 MessageBox.Show("Uspesno ste dodali novi proizvod");
             }
         }
+        
+        private void LoadProducts()
+        {
+            proizvodi = new ObservableCollection<Proizvod>();
+            using (var context = new SALES_SYSTEMEntities2())
+            {
+                var products = context.Proizvod.ToList();
+                foreach (var product in products)
+                {
+                    proizvodi.Add(product);
+                }
+            }
+            lvProducts.ItemsSource = proizvodi;
+        }
+
+
     }
 }

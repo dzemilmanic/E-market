@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Project
     /// <summary>
     /// Interaction logic for Order.xaml
     /// </summary>
-    public partial class Order : Page
+    public partial class Order : Page, INotifyPropertyChanged
     {
         public ObservableCollection<NarudzbinaProizvodKupac> narudzbinaProizvodi {  get; set; }
         public Order()
@@ -29,6 +30,9 @@ namespace Project
             LoadProducts();
             listViewNarudzbine.ItemsSource = narudzbinaProizvodi;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void LoadProducts()
         {
             using (var context = new SALES_SYSTEMEntities2())
@@ -73,15 +77,13 @@ namespace Project
 
                             var novaStavka = new NarudzbinaProizvodKupac
                             {
+                                ProizvodID = product.ProizvodID,
                                 NazivProizvoda = product.Naziv,
                                 Kolicina = inputQuantity,
                                 Cena = product.Cena * inputQuantity,
                                 KupacIme = kupac
                             };
                             narudzbinaProizvodi.Add(novaStavka);
-
-                            product.Kolicina -= inputQuantity;
-                            context.SaveChanges();
                         }
                     }
                     else
@@ -91,26 +93,54 @@ namespace Project
                 }
             }
         }
-        private void btnOtkazi(object sender, RoutedEventArgs e)
+        private void btnSend(object sender, RoutedEventArgs e)
         {
+            string kupac = Login.LoggedIn;
+
             using (var context = new SALES_SYSTEMEntities2())
             {
+                var novaNarudzbina = new Narudzbina
+                {
+                    DatumNarudzbine = DateTime.Now,
+                    KupacID = 1,
+                    ProdavacID = 1
+                };
+
+                context.Narudzbina.Add(novaNarudzbina);
+                context.SaveChanges();
+
                 foreach (var stavka in narudzbinaProizvodi)
                 {
-                    var proizvod = context.Proizvod.SingleOrDefault(p => p.ProizvodID == stavka.ProizvodID);
-                    if (proizvod != null)
+                    var narudzbinaProizvod = new NarudzbinaProizvod
                     {
-                        proizvod.Kolicina += stavka.Kolicina;
+                        NarudzbinaID = novaNarudzbina.NarudzbinaID,
+                        ProizvodID = stavka.ProizvodID,
+                        Kolicina = stavka.Kolicina,
+                        Cena = stavka.Cena
+                    };
+
+                    context.NarudzbinaProizvod.Add(narudzbinaProizvod);
+
+                    var product = context.Proizvod.SingleOrDefault(p => p.ProizvodID == stavka.ProizvodID);
+                    if (product != null)
+                    {
+                        product.Kolicina -= stavka.Kolicina;
                     }
                 }
 
                 context.SaveChanges();
+                MessageBox.Show("Narudžbina je uspešno kreirana");
             }
 
             narudzbinaProizvodi.Clear();
-
-            MessageBox.Show("Narudžbina je otkazana i svi proizvodi su vraćeni.");
         }
+    
+        private void btnCancel(object sender, RoutedEventArgs e)
+        {
+            narudzbinaProizvodi.Clear();
 
+            MessageBox.Show("Narudžbina je otkazana");
+        }
     }
 }
+

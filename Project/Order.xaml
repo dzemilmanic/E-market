@@ -46,8 +46,8 @@
         </ListView>
 
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
-            <Button x:Name="btnPosaljiNarudz" Content="Pošalji narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120"/>
-            <Button x:Name="btnOtkazNarudz" Content="Otkaži narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120" Click="btnOtkazi"/>
+            <Button x:Name="btnPosaljiNarudz" Content="Pošalji narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120" Click="btnSend"/>
+            <Button x:Name="btnOtkazNarudz" Content="Otkaži narudžbinu" Style="{StaticResource ButtonStyle}" Tag="120" Click="btnCancel"/>
         </StackPanel>
     </Grid>
 </Page>

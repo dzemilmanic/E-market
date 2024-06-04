@@ -11,8 +11,9 @@ namespace Project
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Proizvod
+    using System.ComponentModel;
+
+    public partial class Proizvod : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proizvod()
@@ -27,8 +28,8 @@ namespace Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NarudzbinaProizvod> NarudzbinaProizvod { get; set; }
-        public string ProductName { get; internal set; }
-        public string ProductPrice { get; internal set; }
-        public string ProductQuantity { get; internal set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }
