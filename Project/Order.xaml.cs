@@ -21,11 +21,11 @@ namespace Project
     /// </summary>
     public partial class Order : Page
     {
-        public ObservableCollection<NarudzbinaProizvod> narudzbinaProizvodi {  get; set; }
+        public ObservableCollection<NarudzbinaProizvodKupac> narudzbinaProizvodi {  get; set; }
         public Order()
         {
             InitializeComponent();
-            narudzbinaProizvodi = new ObservableCollection<NarudzbinaProizvod>();
+            narudzbinaProizvodi = new ObservableCollection<NarudzbinaProizvodKupac>();
             LoadProducts();
             listViewNarudzbine.ItemsSource = narudzbinaProizvodi;
         }
@@ -69,17 +69,20 @@ namespace Project
                         }
                         else
                         {
-                            string nazivProizvoda = product.Naziv;
-                            var novaStavka = new NarudzbinaProizvod
+                            string kupac = Login.LoggedIn;
+
+                            var novaStavka = new NarudzbinaProizvodKupac
                             {
-                                ProizvodID = product.ProizvodID,
+                                NazivProizvoda = product.Naziv,
                                 Kolicina = inputQuantity,
-                                Cena = product.Cena,
-                                Proizvod = product
+                                Cena = product.Cena * inputQuantity,
+                                KupacIme = kupac
                             };
                             narudzbinaProizvodi.Add(novaStavka);
+
+                            product.Kolicina -= inputQuantity;
+                            context.SaveChanges();
                         }
-                       
                     }
                     else
                     {
@@ -88,5 +91,26 @@ namespace Project
                 }
             }
         }
+        private void btnOtkazi(object sender, RoutedEventArgs e)
+        {
+            using (var context = new SALES_SYSTEMEntities2())
+            {
+                foreach (var stavka in narudzbinaProizvodi)
+                {
+                    var proizvod = context.Proizvod.SingleOrDefault(p => p.ProizvodID == stavka.ProizvodID);
+                    if (proizvod != null)
+                    {
+                        proizvod.Kolicina += stavka.Kolicina;
+                    }
+                }
+
+                context.SaveChanges();
+            }
+
+            narudzbinaProizvodi.Clear();
+
+            MessageBox.Show("Narudžbina je otkazana i svi proizvodi su vraćeni.");
+        }
+
     }
 }

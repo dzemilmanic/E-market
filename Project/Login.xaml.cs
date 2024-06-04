@@ -24,6 +24,7 @@ namespace Project
             InitializeComponent();
         }
 
+        public static string LoggedIn { get; private set; }
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -34,6 +35,7 @@ namespace Project
             else
             {
                 MainWindow mw = new MainWindow();
+                LoggedIn = tbUsername.Text;
                 mw.Show();
                 this.Close();
             }

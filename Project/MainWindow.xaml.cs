@@ -30,7 +30,7 @@ namespace Project
 
         private void btnHome(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
 
             if (showPage.Content != null)
             {
@@ -42,7 +42,7 @@ namespace Project
         }
         private void btnOrder(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
 
             if (showPage.Content != null)
             {
@@ -54,7 +54,7 @@ namespace Project
         }
         private void btnProduct(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
 
             if (showPage.Content != null)
             {
@@ -66,7 +66,7 @@ namespace Project
         }
         private void btnSendMess(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
 
             if (showPage.Content != null)
             {
@@ -78,7 +78,7 @@ namespace Project
         }
         private void btnRaport(object sender, RoutedEventArgs e)
         {
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
 
             if (showPage.Content != null)
             {

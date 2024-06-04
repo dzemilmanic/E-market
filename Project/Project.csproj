@@ -92,6 +92,7 @@
     <Compile Include="NarudzbinaProizvod.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="NarudzbinaProizvodKupac.cs" />
     <Compile Include="Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
