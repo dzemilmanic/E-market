@@ -6,16 +6,25 @@
       xmlns:local="clr-namespace:Project"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Orders">
-
-    <Grid>
-        <ListView x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}">
+      Title="Orders"
+      Background="White">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" >
+            <TextBlock Text="Vaše narudžbine" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+                FontWeight="Bold" Padding="10"/>
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Narudzbina" DisplayMemberBinding="{Binding NarudzbinaID}" Width="120"/>
-                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding ProizvodID}" Width="120"/>
-                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
-                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="60"/>
+                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding KupacID}" Width="120"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding ProdavacID}" Width="60"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding DatumNarudzbine}" Width="60"/>
                     <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="60"/>
                 </GridView>
             </ListView.View>

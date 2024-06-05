@@ -22,9 +22,9 @@ namespace Project
     /// </summary>
     public partial class Orders : Page, INotifyPropertyChanged
     {
-        private ObservableCollection<NarudzbinaProizvod> _narudzbine;
+        private ObservableCollection<Narudzbina> _narudzbine;
 
-        public ObservableCollection<NarudzbinaProizvod> Narudzbine
+        public ObservableCollection<Narudzbina> Narudzbine
         {
             get { return _narudzbine; }
             set
@@ -44,9 +44,9 @@ namespace Project
         public event PropertyChangedEventHandler PropertyChanged;
         private void LoadOrders()
         {
-            using (var context = new SALES_SYSTEMEntities2())
+            using (var context = new sales_systemEntities())
             {
-                Narudzbine = new ObservableCollection<NarudzbinaProizvod>(context.NarudzbinaProizvod);
+                Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina);
             }
         }
 

@@ -4,17 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4a9a98313c1e49eabff384b1a8325d3d" Name="Diagram1">
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.Kupac" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.Narudzbina" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.NarudzbinaProizvod" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.Prodavac" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.Proizvod" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Kupac__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Narud__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proda__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="SALES_SYSTEMModel.FK__Narudzbin__Proiz__4222D4EF" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SALES_SYSTEMModel.Users" Width="1.5" PointX="5.375" PointY="4.75" />
+      <Diagram DiagramId="94a36cc541e34e16a4cb4a06c2286baf" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="sales_systemModel.Firma" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.FizickoLice" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.Korisnici" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.Kupac" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.Narudzbina" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.NarudzbinaProizvod" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.Prodavac" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sales_systemModel.Proizvod" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="sales_systemModel.FK__Kupac__FirmaID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Prodavac__FirmaI__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Kupac__FizickoLi__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Prodavac__Fizick__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Kupac__KorisnikI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Prodavac__Korisn__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Narudzbin__Kupac__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Narudzbin__Narud__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Narudzbin__Proda__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Narudzbin__Proiz__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="sales_systemModel.FK__Proizvod__Prodav__49C3F6B7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

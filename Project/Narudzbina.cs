@@ -21,9 +21,9 @@ namespace Project
         }
     
         public int NarudzbinaID { get; set; }
-        public System.DateTime DatumNarudzbine { get; set; }
-        public int KupacID { get; set; }
-        public int ProdavacID { get; set; }
+        public Nullable<int> KupacID { get; set; }
+        public Nullable<int> ProdavacID { get; set; }
+        public Nullable<System.DateTime> DatumNarudzbine { get; set; }
     
         public virtual Kupac Kupac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -13,10 +13,10 @@ namespace Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SALES_SYSTEMEntities2 : DbContext
+    public partial class sales_systemEntities1 : DbContext
     {
-        public SALES_SYSTEMEntities2()
-            : base("name=SALES_SYSTEMEntities2")
+        public sales_systemEntities1()
+            : base("name=sales_systemEntities1")
         {
         }
     
@@ -25,11 +25,13 @@ namespace Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Firma> Firma { get; set; }
+        public virtual DbSet<FizickoLice> FizickoLice { get; set; }
+        public virtual DbSet<Korisnici> Korisnici { get; set; }
         public virtual DbSet<Kupac> Kupac { get; set; }
         public virtual DbSet<Narudzbina> Narudzbina { get; set; }
         public virtual DbSet<NarudzbinaProizvod> NarudzbinaProizvod { get; set; }
         public virtual DbSet<Prodavac> Prodavac { get; set; }
         public virtual DbSet<Proizvod> Proizvod { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
     }
 }

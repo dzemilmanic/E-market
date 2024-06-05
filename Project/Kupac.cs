@@ -20,11 +20,14 @@ namespace Project
             this.Narudzbina = new HashSet<Narudzbina>();
         }
     
-        public int KupacID { get; set; }
-        public string Ime { get; set; }
-        public string Email { get; set; }
-        public string Telefon { get; set; }
+        public int KorisnikID { get; set; }
+        public string TipKupca { get; set; }
+        public Nullable<int> FizickoLiceID { get; set; }
+        public Nullable<int> FirmaID { get; set; }
     
+        public virtual Firma Firma { get; set; }
+        public virtual FizickoLice FizickoLice { get; set; }
+        public virtual Korisnici Korisnici { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narudzbina> Narudzbina { get; set; }
     }

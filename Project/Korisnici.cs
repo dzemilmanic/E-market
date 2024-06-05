@@ -12,10 +12,14 @@ namespace Project
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Korisnici
     {
-        public int Id { get; set; }
+        public int KorisnikID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Tip { get; set; }
+    
+        public virtual Kupac Kupac { get; set; }
+        public virtual Prodavac Prodavac { get; set; }
     }
 }

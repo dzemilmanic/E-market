@@ -16,8 +16,8 @@ namespace Project
     {
         public int NarudzbinaID { get; set; }
         public int ProizvodID { get; set; }
-        public int Kolicina { get; set; }
-        public decimal Cena { get; set; }
+        public Nullable<int> Kolicina { get; set; }
+        public Nullable<decimal> Cena { get; set; }
     
         public virtual Narudzbina Narudzbina { get; set; }
         public virtual Proizvod Proizvod { get; set; }

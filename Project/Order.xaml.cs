@@ -22,7 +22,7 @@ namespace Project
     /// </summary>
     public partial class Order : Page, INotifyPropertyChanged
     {
-        public ObservableCollection<NarudzbinaProizvodKupac> narudzbinaProizvodi {  get; set; }
+        public ObservableCollection<NarudzbinaProizvodKupac> narudzbinaProizvodi { get; set; }
         public Order()
         {
             InitializeComponent();
@@ -32,10 +32,13 @@ namespace Project
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private void LoadProducts()
         {
-            using (var context = new SALES_SYSTEMEntities2())
+            using (var context = new sales_systemEntities1())
             {
                 var products = context.Proizvod.ToList();
                 comboBoxProizvodi.ItemsSource = products;
@@ -46,7 +49,7 @@ namespace Project
         }
         private void AddProduct(object sender, RoutedEventArgs e)
         {
-            
+
             if (comboBoxProizvodi.SelectedItem == null)
             {
                 MessageBox.Show("Izaberite artikal iz liste");
@@ -62,7 +65,7 @@ namespace Project
             var selectedProduct = comboBoxProizvodi.SelectedItem as Proizvod;
             if (selectedProduct != null)
             {
-                using (var context = new SALES_SYSTEMEntities2())
+                using (var context = new sales_systemEntities1())
                 {
                     var product = context.Proizvod.SingleOrDefault(p => p.ProizvodID == selectedProduct.ProizvodID);
                     if (product != null)
@@ -97,12 +100,12 @@ namespace Project
         {
             string kupac = Login.LoggedIn;
 
-            using (var context = new SALES_SYSTEMEntities2())
+            using (var context = new sales_systemEntities1())
             {
                 var novaNarudzbina = new Narudzbina
                 {
                     DatumNarudzbine = DateTime.Now,
-                    KupacID = 1,
+                    KupacID = GetCustomerID(kupac),
                     ProdavacID = 1
                 };
 
@@ -134,12 +137,27 @@ namespace Project
 
             narudzbinaProizvodi.Clear();
         }
-    
+
         private void btnCancel(object sender, RoutedEventArgs e)
         {
             narudzbinaProizvodi.Clear();
 
             MessageBox.Show("Narudžbina je otkazana");
+        }
+        private int GetCustomerID(string username)
+        {
+            using (var context = new sales_systemEntities1())
+            {
+                var customer = context.Korisnici.SingleOrDefault(k => k.Username == username);
+                if (customer != null)
+                {
+                    return customer.ID;
+                }
+                else
+                {
+                    throw new Exception("Kupac nije pronađen");
+                }
+            }
         }
     }
 }
