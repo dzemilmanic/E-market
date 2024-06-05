@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -59,23 +60,30 @@ namespace Project
             }
             else
             {
-                Proizvod p = new Proizvod
-                {
-                    Naziv = txtProductName.Text.Trim(),
-                    Cena = cena,
-                    Kolicina = kolicina
-                };
-                proizvodi.Add(p);
-
                 using (var context = new sales_systemEntities2())
                 {
+                    if (context.Proizvod.Any(pr => pr.Naziv == txtProductName.Text.Trim()))
+                    {
+                        MessageBox.Show("Proizvod sa unetim imenom već postoji, ukoliko ste uneli novu cenu ili količinu pokušajte da ažurirate proizvod");
+                        return;
+                    }
+
+                    Proizvod p = new Proizvod
+                    {
+                        Naziv = txtProductName.Text.Trim(),
+                        Cena = cena,
+                        Kolicina = kolicina
+                    };
+
                     context.Proizvod.Add(p);
                     context.SaveChanges();
+
+                    proizvodi.Add(p);
+                    MessageBox.Show("Uspesno ste dodali novi proizvod");
                 }
-                MessageBox.Show("Uspesno ste dodali novi proizvod");
             }
         }
-        
+
         private void LoadProducts()
         {
             proizvodi = new ObservableCollection<Proizvod>();
@@ -90,6 +98,100 @@ namespace Project
             lvProducts.ItemsSource = proizvodi;
         }
 
+        private void lvProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvProducts.SelectedItem != null)
+            {
+                Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
 
+                txtProductName.Text = selectedProduct.Naziv;
+                txtProductPrice.Text = selectedProduct.Cena.ToString();
+                txtProductQuantity.Text = selectedProduct.Kolicina.ToString();
+            }
+        }
+        private void btnUpdateProduct(object sender, RoutedEventArgs e)
+        {
+            if (lvProducts.SelectedItem != null)
+            {
+                Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
+
+                if (selectedProduct.Naziv != txtProductName.Text.Trim() ||
+                    selectedProduct.Cena != decimal.Parse(txtProductPrice.Text.Trim()) ||
+                    selectedProduct.Kolicina != int.Parse(txtProductQuantity.Text.Trim()))
+                {
+                    selectedProduct.Naziv = txtProductName.Text.Trim();
+                    if (decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
+                    {
+                        selectedProduct.Cena = cena;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
+                        return;
+                    }
+
+                    if (int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
+                    {
+                        selectedProduct.Kolicina = kolicina;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
+                        return;
+                    }
+
+                    using (var context = new sales_systemEntities2())
+                    {
+                        context.Entry(selectedProduct).State = EntityState.Modified;
+                        context.SaveChanges();
+                    }
+
+                    MessageBox.Show("Proizvod je uspešno ažuriran");
+                    LoadProducts();
+                }
+                else
+                {
+                    MessageBox.Show("Nije izmenjeno ništa. Morate izmeniti barem jedno polje.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Niste odabrali proizvod za ažuriranje, pokušajte da dodate uneti proizvod");
+            }
+        }
+        private void btnDeleteProduct(object sender, RoutedEventArgs e)
+        {
+            if (lvProducts.SelectedItem != null)
+            {
+                Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
+
+                using (var context = new sales_systemEntities2())
+                {
+                    // Provera da li postoji narudzbina koja koristi izabrani proizvod
+                    var existingOrder = context.NarudzbinaProizvod.Any(np => np.ProizvodID == selectedProduct.ProizvodID);
+                    if (existingOrder)
+                    {
+                        MessageBox.Show("Ne možete obrisati proizvod jer je već dodat u neku narudžbinu.");
+                        return;
+                    }
+
+                    MessageBoxResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete proizvod {selectedProduct.Naziv}?", "Potvrda brisanja", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        // Obriši proizvod samo ako nije dodat ni u jednu narudžbinu
+                        context.Proizvod.Remove(selectedProduct);
+                        context.SaveChanges();
+
+                        proizvodi.Remove(selectedProduct);
+                        MessageBox.Show("Proizvod je uspešno obrisan");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Morate odabrati proizvod za brisanje");
+            }
+        }
     }
 }
+

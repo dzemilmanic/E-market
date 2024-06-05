@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\product.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Orders.xaml",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml",
-              "RelativeDocumentMoniker": "Project\\Orders.xaml",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml",
-              "RelativeToolTip": "Project\\Orders.xaml",
+              "DocumentIndex": 1,
+              "Title": "Product.xaml",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml",
+              "RelativeDocumentMoniker": "Project\\Product.xaml",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml",
+              "RelativeToolTip": "Project\\Product.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-05T16:12:35.445Z",
+              "WhenOpened": "2024-06-05T19:20:49.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Orders.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml.cs",
-              "RelativeDocumentMoniker": "Project\\Orders.xaml.cs",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml.cs",
-              "RelativeToolTip": "Project\\Orders.xaml.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAADgvzEAAAAbAAAA",
+              "DocumentIndex": 0,
+              "Title": "Product.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\Product.xaml.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
+              "RelativeToolTip": "Project\\Product.xaml.cs",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAEwJUAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T16:12:18.445Z",
+              "WhenOpened": "2024-06-05T19:21:09.326Z",
               "EditorCaption": ""
             }
           ]

@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" >
             <TextBlock Text="Dodaj/ažuriraj proizvode" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -27,17 +28,23 @@
             <TextBox x:Name="txtProductPrice" Margin="5,0,5,0" Width="50" Height="30"/>
             <TextBlock Text="Kolicina proizvoda:" VerticalAlignment="Center" Margin="5,0,5,0"/>
             <TextBox x:Name="txtProductQuantity" Width="50" Margin="5,0,5,0" Height="30"/>
-            <Button Content="Dodaj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" Click="btnAddProduct"/>
+            <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                <Button Content="Dodaj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" Click="btnAddProduct"/>
+                <Button Content="Ažuriraj proizvod"  Style="{StaticResource ButtonStyle}" Tag="100" Click="btnUpdateProduct" x:Name="btnUpdate"/>
+            </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="lvProducts" Grid.Row="2" Margin="5">
+        <ListView x:Name="lvProducts" Grid.Row="2" Margin="5" SelectionChanged="lvProducts_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" Width="120"/>
-                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="70"/>
-                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="70"/>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" Width="200"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="200"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Margin="5,5,20,5">
+            <Button Content="Obriši proizvod" Style="{StaticResource ButtonStyle}" Tag="100" Click="btnDeleteProduct" x:Name="btnDelete" Margin="5,5,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>
