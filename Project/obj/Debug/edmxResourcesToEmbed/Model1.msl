@@ -1,28 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SALES_SYSTEMModelStoreContainer" CdmEntityContainer="SALES_SYSTEMEntities2">
-    <EntitySetMapping Name="Kupac">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.Kupac">
-        <MappingFragment StoreEntitySet="Kupac">
-          <ScalarProperty Name="KupacID" ColumnName="KupacID" />
-          <ScalarProperty Name="Ime" ColumnName="Ime" />
+  <EntityContainerMapping StorageEntityContainer="sales_systemModelStoreContainer" CdmEntityContainer="sales_systemEntities2">
+    <EntitySetMapping Name="Firma">
+      <EntityTypeMapping TypeName="sales_systemModel.Firma">
+        <MappingFragment StoreEntitySet="Firma">
+          <ScalarProperty Name="FirmaID" ColumnName="FirmaID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="PIB" ColumnName="PIB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FizickoLice">
+      <EntityTypeMapping TypeName="sales_systemModel.FizickoLice">
+        <MappingFragment StoreEntitySet="FizickoLice">
+          <ScalarProperty Name="FizickoLiceID" ColumnName="FizickoLiceID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnici">
+      <EntityTypeMapping TypeName="sales_systemModel.Korisnici">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="KorisnikID" ColumnName="KorisnikID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kupac">
+      <EntityTypeMapping TypeName="sales_systemModel.Kupac">
+        <MappingFragment StoreEntitySet="Kupac">
+          <ScalarProperty Name="KorisnikID" ColumnName="KorisnikID" />
+          <ScalarProperty Name="TipKupca" ColumnName="TipKupca" />
+          <ScalarProperty Name="FizickoLiceID" ColumnName="FizickoLiceID" />
+          <ScalarProperty Name="FirmaID" ColumnName="FirmaID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Narudzbina">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.Narudzbina">
+      <EntityTypeMapping TypeName="sales_systemModel.Narudzbina">
         <MappingFragment StoreEntitySet="Narudzbina">
           <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
-          <ScalarProperty Name="DatumNarudzbine" ColumnName="DatumNarudzbine" />
           <ScalarProperty Name="KupacID" ColumnName="KupacID" />
           <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
+          <ScalarProperty Name="DatumNarudzbine" ColumnName="DatumNarudzbine" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NarudzbinaProizvod">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.NarudzbinaProizvod">
+      <EntityTypeMapping TypeName="sales_systemModel.NarudzbinaProizvod">
         <MappingFragment StoreEntitySet="NarudzbinaProizvod">
           <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
           <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
@@ -32,31 +62,23 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Prodavac">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.Prodavac">
+      <EntityTypeMapping TypeName="sales_systemModel.Prodavac">
         <MappingFragment StoreEntitySet="Prodavac">
-          <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
-          <ScalarProperty Name="Ime" ColumnName="Ime" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="KorisnikID" ColumnName="KorisnikID" />
+          <ScalarProperty Name="TipProdavca" ColumnName="TipProdavca" />
+          <ScalarProperty Name="FizickoLiceID" ColumnName="FizickoLiceID" />
+          <ScalarProperty Name="FirmaID" ColumnName="FirmaID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proizvod">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.Proizvod">
+      <EntityTypeMapping TypeName="sales_systemModel.Proizvod">
         <MappingFragment StoreEntitySet="Proizvod">
           <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
           <ScalarProperty Name="Naziv" ColumnName="Naziv" />
           <ScalarProperty Name="Cena" ColumnName="Cena" />
           <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="SALES_SYSTEMModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

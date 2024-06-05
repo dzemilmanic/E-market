@@ -23,6 +23,7 @@ namespace Project
         public int ProizvodID { get; set; }
         public string Naziv { get; set; }
         public Nullable<decimal> Cena { get; set; }
+        public Nullable<int> Kolicina { get; set; }
         public Nullable<int> ProdavacID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

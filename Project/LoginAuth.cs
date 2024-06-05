@@ -10,7 +10,7 @@ namespace Project
     {
        public static bool IsValidUser(string username, string password)
        {
-        using (var context = new sales_systemEntities())
+        using (var context = new sales_systemEntities2())
         {
             return context.Korisnici.Any(k => k.Username == username && k.Password == password);
         }

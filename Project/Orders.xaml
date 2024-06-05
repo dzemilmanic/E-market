@@ -21,11 +21,10 @@
         <ListView Grid.Row="1" x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Narudzbina" DisplayMemberBinding="{Binding NarudzbinaID}" Width="120"/>
-                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding KupacID}" Width="120"/>
-                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding ProdavacID}" Width="60"/>
-                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding DatumNarudzbine}" Width="60"/>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="60"/>
+                    <GridViewColumn Header="Narudzbina ID" DisplayMemberBinding="{Binding NarudzbinaID}" Width="150"/>
+                    <GridViewColumn Header="Kupac ID" DisplayMemberBinding="{Binding KupacID}" Width="150"/>
+                    <GridViewColumn Header="Datum narudžbine" DisplayMemberBinding="{Binding DatumNarudzbine}" Width="150"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="150"/>
                 </GridView>
             </ListView.View>
         </ListView>

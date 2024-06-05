@@ -13,10 +13,10 @@ namespace Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sales_systemEntities1 : DbContext
+    public partial class sales_systemEntities2 : DbContext
     {
-        public sales_systemEntities1()
-            : base("name=sales_systemEntities1")
+        public sales_systemEntities2()
+            : base("name=sales_systemEntities2")
         {
         }
     

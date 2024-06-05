@@ -76,6 +76,7 @@
           <Property Name="ProizvodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="nvarchar" MaxLength="50" />
           <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Kolicina" Type="int" />
           <Property Name="ProdavacID" Type="int" />
         </EntityType>
         <Association Name="FK__Kupac__FirmaID__412EB0B6">
@@ -360,6 +361,7 @@
           <Property Name="ProizvodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Kolicina" Type="Int32" />
           <Property Name="ProdavacID" Type="Int32" />
           <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Proiz__5165187F" FromRole="Proizvod" ToRole="NarudzbinaProizvod" />
           <NavigationProperty Name="Prodavac" Relationship="Self.FK__Proizvod__Prodav__49C3F6B7" FromRole="Proizvod" ToRole="Prodavac" />
@@ -496,7 +498,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="sales_systemEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="sales_systemEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Firma" EntityType="Self.Firma" />
           <EntitySet Name="FizickoLice" EntityType="Self.FizickoLice" />
           <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
@@ -555,7 +557,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sales_systemModelStoreContainer" CdmEntityContainer="sales_systemEntities1">
+        <EntityContainerMapping StorageEntityContainer="sales_systemModelStoreContainer" CdmEntityContainer="sales_systemEntities2">
           <EntitySetMapping Name="Firma">
             <EntityTypeMapping TypeName="sales_systemModel.Firma">
               <MappingFragment StoreEntitySet="Firma">
@@ -632,6 +634,7 @@
                 <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
                 <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -67,7 +67,7 @@ namespace Project
                 };
                 proizvodi.Add(p);
 
-                using (var context = new sales_systemEntities())
+                using (var context = new sales_systemEntities2())
                 {
                     context.Proizvod.Add(p);
                     context.SaveChanges();
@@ -79,7 +79,7 @@ namespace Project
         private void LoadProducts()
         {
             proizvodi = new ObservableCollection<Proizvod>();
-            using (var context = new sales_systemEntities())
+            using (var context = new sales_systemEntities2())
             {
                 var products = context.Proizvod.ToList();
                 foreach (var product in products)

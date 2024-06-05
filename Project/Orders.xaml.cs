@@ -23,7 +23,6 @@ namespace Project
     public partial class Orders : Page, INotifyPropertyChanged
     {
         private ObservableCollection<Narudzbina> _narudzbine;
-
         public ObservableCollection<Narudzbina> Narudzbine
         {
             get { return _narudzbine; }
@@ -33,6 +32,8 @@ namespace Project
                 OnPropertyChanged(nameof(Narudzbine));
             }
         }
+
+
         public Orders()
         {
             InitializeComponent();
@@ -44,10 +45,10 @@ namespace Project
         public event PropertyChangedEventHandler PropertyChanged;
         private void LoadOrders()
         {
-            using (var context = new sales_systemEntities())
+            using (var context = new sales_systemEntities2())
             {
                 Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina);
-            }
+                            }
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

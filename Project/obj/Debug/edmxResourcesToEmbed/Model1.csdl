@@ -1,26 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SALES_SYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="sales_systemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Firma">
+    <Key>
+      <PropertyRef Name="FirmaID" />
+    </Key>
+    <Property Name="FirmaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PIB" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kupac" Relationship="Self.FK__Kupac__FirmaID__412EB0B6" FromRole="Firma" ToRole="Kupac" />
+    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Prodavac__FirmaI__46E78A0C" FromRole="Firma" ToRole="Prodavac" />
+  </EntityType>
+  <EntityType Name="FizickoLice">
+    <Key>
+      <PropertyRef Name="FizickoLiceID" />
+    </Key>
+    <Property Name="FizickoLiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kupac" Relationship="Self.FK__Kupac__FizickoLi__403A8C7D" FromRole="FizickoLice" ToRole="Kupac" />
+    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Prodavac__Fizick__45F365D3" FromRole="FizickoLice" ToRole="Prodavac" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="KorisnikID" />
+    </Key>
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Kupac" Relationship="Self.FK__Kupac__KorisnikI__3F466844" FromRole="Korisnici" ToRole="Kupac" />
+    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Prodavac__Korisn__44FF419A" FromRole="Korisnici" ToRole="Prodavac" />
+  </EntityType>
   <EntityType Name="Kupac">
     <Key>
-      <PropertyRef Name="KupacID" />
+      <PropertyRef Name="KorisnikID" />
     </Key>
-    <Property Name="KupacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Kupac__3D5E1FD2" FromRole="Kupac" ToRole="Narudzbina" />
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" />
+    <Property Name="TipKupca" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FizickoLiceID" Type="Int32" />
+    <Property Name="FirmaID" Type="Int32" />
+    <NavigationProperty Name="Firma" Relationship="Self.FK__Kupac__FirmaID__412EB0B6" FromRole="Kupac" ToRole="Firma" />
+    <NavigationProperty Name="FizickoLice" Relationship="Self.FK__Kupac__FizickoLi__403A8C7D" FromRole="Kupac" ToRole="FizickoLice" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Kupac__KorisnikI__3F466844" FromRole="Kupac" ToRole="Korisnici" />
+    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Kupac__4CA06362" FromRole="Kupac" ToRole="Narudzbina" />
   </EntityType>
   <EntityType Name="Narudzbina">
     <Key>
       <PropertyRef Name="NarudzbinaID" />
     </Key>
     <Property Name="NarudzbinaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DatumNarudzbine" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="KupacID" Type="Int32" Nullable="false" />
-    <Property Name="ProdavacID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Kupac" Relationship="Self.FK__Narudzbin__Kupac__3D5E1FD2" FromRole="Narudzbina" ToRole="Kupac" />
-    <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__412EB0B6" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
-    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__3E52440B" FromRole="Narudzbina" ToRole="Prodavac" />
+    <Property Name="KupacID" Type="Int32" />
+    <Property Name="ProdavacID" Type="Int32" />
+    <Property Name="DatumNarudzbine" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Kupac" Relationship="Self.FK__Narudzbin__Kupac__4CA06362" FromRole="Narudzbina" ToRole="Kupac" />
+    <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
+    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__4D94879B" FromRole="Narudzbina" ToRole="Prodavac" />
   </EntityType>
   <EntityType Name="NarudzbinaProizvod">
     <Key>
@@ -29,44 +65,122 @@
     </Key>
     <Property Name="NarudzbinaID" Type="Int32" Nullable="false" />
     <Property Name="ProizvodID" Type="Int32" Nullable="false" />
-    <Property Name="Kolicina" Type="Int32" Nullable="false" />
-    <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Narud__412EB0B6" FromRole="NarudzbinaProizvod" ToRole="Narudzbina" />
-    <NavigationProperty Name="Proizvod" Relationship="Self.FK__Narudzbin__Proiz__4222D4EF" FromRole="NarudzbinaProizvod" ToRole="Proizvod" />
+    <Property Name="Kolicina" Type="Int32" />
+    <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="NarudzbinaProizvod" ToRole="Narudzbina" />
+    <NavigationProperty Name="Proizvod" Relationship="Self.FK__Narudzbin__Proiz__5165187F" FromRole="NarudzbinaProizvod" ToRole="Proizvod" />
   </EntityType>
   <EntityType Name="Prodavac">
     <Key>
-      <PropertyRef Name="ProdavacID" />
+      <PropertyRef Name="KorisnikID" />
     </Key>
-    <Property Name="ProdavacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Proda__3E52440B" FromRole="Prodavac" ToRole="Narudzbina" />
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" />
+    <Property Name="TipProdavca" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FizickoLiceID" Type="Int32" />
+    <Property Name="FirmaID" Type="Int32" />
+    <NavigationProperty Name="Firma" Relationship="Self.FK__Prodavac__FirmaI__46E78A0C" FromRole="Prodavac" ToRole="Firma" />
+    <NavigationProperty Name="FizickoLice" Relationship="Self.FK__Prodavac__Fizick__45F365D3" FromRole="Prodavac" ToRole="FizickoLice" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Prodavac__Korisn__44FF419A" FromRole="Prodavac" ToRole="Korisnici" />
+    <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Proda__4D94879B" FromRole="Prodavac" ToRole="Narudzbina" />
+    <NavigationProperty Name="Proizvod" Relationship="Self.FK__Proizvod__Prodav__49C3F6B7" FromRole="Prodavac" ToRole="Proizvod" />
   </EntityType>
   <EntityType Name="Proizvod">
     <Key>
       <PropertyRef Name="ProizvodID" />
     </Key>
     <Property Name="ProizvodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="Kolicina" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Proiz__4222D4EF" FromRole="Proizvod" ToRole="NarudzbinaProizvod" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Kolicina" Type="Int32" />
+    <Property Name="ProdavacID" Type="Int32" />
+    <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Proiz__5165187F" FromRole="Proizvod" ToRole="NarudzbinaProizvod" />
+    <NavigationProperty Name="Prodavac" Relationship="Self.FK__Proizvod__Prodav__49C3F6B7" FromRole="Proizvod" ToRole="Prodavac" />
   </EntityType>
-  <Association Name="FK__Narudzbin__Kupac__3D5E1FD2">
-    <End Role="Kupac" Type="Self.Kupac" Multiplicity="1" />
+  <Association Name="FK__Kupac__FirmaID__412EB0B6">
+    <End Role="Firma" Type="Self.Firma" Multiplicity="0..1" />
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firma">
+        <PropertyRef Name="FirmaID" />
+      </Principal>
+      <Dependent Role="Kupac">
+        <PropertyRef Name="FirmaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prodavac__FirmaI__46E78A0C">
+    <End Role="Firma" Type="Self.Firma" Multiplicity="0..1" />
+    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firma">
+        <PropertyRef Name="FirmaID" />
+      </Principal>
+      <Dependent Role="Prodavac">
+        <PropertyRef Name="FirmaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kupac__FizickoLi__403A8C7D">
+    <End Role="FizickoLice" Type="Self.FizickoLice" Multiplicity="0..1" />
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FizickoLice">
+        <PropertyRef Name="FizickoLiceID" />
+      </Principal>
+      <Dependent Role="Kupac">
+        <PropertyRef Name="FizickoLiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prodavac__Fizick__45F365D3">
+    <End Role="FizickoLice" Type="Self.FizickoLice" Multiplicity="0..1" />
+    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FizickoLice">
+        <PropertyRef Name="FizickoLiceID" />
+      </Principal>
+      <Dependent Role="Prodavac">
+        <PropertyRef Name="FizickoLiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kupac__KorisnikI__3F466844">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Kupac">
+        <PropertyRef Name="KorisnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prodavac__Korisn__44FF419A">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Prodavac">
+        <PropertyRef Name="KorisnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Narudzbin__Kupac__4CA06362">
+    <End Role="Kupac" Type="Self.Kupac" Multiplicity="0..1" />
     <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Kupac">
-        <PropertyRef Name="KupacID" />
+        <PropertyRef Name="KorisnikID" />
       </Principal>
       <Dependent Role="Narudzbina">
         <PropertyRef Name="KupacID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Narudzbin__Narud__412EB0B6">
+  <Association Name="FK__Narudzbin__Narud__5070F446">
     <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="1" />
     <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
     <ReferentialConstraint>
@@ -78,19 +192,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Narudzbin__Proda__3E52440B">
-    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="1" />
+  <Association Name="FK__Narudzbin__Proda__4D94879B">
+    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="0..1" />
     <End Role="Narudzbina" Type="Self.Narudzbina" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Prodavac">
-        <PropertyRef Name="ProdavacID" />
+        <PropertyRef Name="KorisnikID" />
       </Principal>
       <Dependent Role="Narudzbina">
         <PropertyRef Name="ProdavacID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Narudzbin__Proiz__4222D4EF">
+  <Association Name="FK__Narudzbin__Proiz__5165187F">
     <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
     <End Role="NarudzbinaProizvod" Type="Self.NarudzbinaProizvod" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,36 +216,70 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SALES_SYSTEMEntities2" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK__Proizvod__Prodav__49C3F6B7">
+    <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="0..1" />
+    <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prodavac">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Proizvod">
+        <PropertyRef Name="ProdavacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sales_systemEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Firma" EntityType="Self.Firma" />
+    <EntitySet Name="FizickoLice" EntityType="Self.FizickoLice" />
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
     <EntitySet Name="Kupac" EntityType="Self.Kupac" />
     <EntitySet Name="Narudzbina" EntityType="Self.Narudzbina" />
     <EntitySet Name="NarudzbinaProizvod" EntityType="Self.NarudzbinaProizvod" />
     <EntitySet Name="Prodavac" EntityType="Self.Prodavac" />
     <EntitySet Name="Proizvod" EntityType="Self.Proizvod" />
-    <AssociationSet Name="FK__Narudzbin__Kupac__3D5E1FD2" Association="Self.FK__Narudzbin__Kupac__3D5E1FD2">
+    <AssociationSet Name="FK__Kupac__FirmaID__412EB0B6" Association="Self.FK__Kupac__FirmaID__412EB0B6">
+      <End Role="Firma" EntitySet="Firma" />
+      <End Role="Kupac" EntitySet="Kupac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prodavac__FirmaI__46E78A0C" Association="Self.FK__Prodavac__FirmaI__46E78A0C">
+      <End Role="Firma" EntitySet="Firma" />
+      <End Role="Prodavac" EntitySet="Prodavac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kupac__FizickoLi__403A8C7D" Association="Self.FK__Kupac__FizickoLi__403A8C7D">
+      <End Role="FizickoLice" EntitySet="FizickoLice" />
+      <End Role="Kupac" EntitySet="Kupac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prodavac__Fizick__45F365D3" Association="Self.FK__Prodavac__Fizick__45F365D3">
+      <End Role="FizickoLice" EntitySet="FizickoLice" />
+      <End Role="Prodavac" EntitySet="Prodavac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kupac__KorisnikI__3F466844" Association="Self.FK__Kupac__KorisnikI__3F466844">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Kupac" EntitySet="Kupac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prodavac__Korisn__44FF419A" Association="Self.FK__Prodavac__Korisn__44FF419A">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Prodavac" EntitySet="Prodavac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Narudzbin__Kupac__4CA06362" Association="Self.FK__Narudzbin__Kupac__4CA06362">
       <End Role="Kupac" EntitySet="Kupac" />
       <End Role="Narudzbina" EntitySet="Narudzbina" />
     </AssociationSet>
-    <AssociationSet Name="FK__Narudzbin__Narud__412EB0B6" Association="Self.FK__Narudzbin__Narud__412EB0B6">
+    <AssociationSet Name="FK__Narudzbin__Narud__5070F446" Association="Self.FK__Narudzbin__Narud__5070F446">
       <End Role="Narudzbina" EntitySet="Narudzbina" />
       <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
     </AssociationSet>
-    <AssociationSet Name="FK__Narudzbin__Proda__3E52440B" Association="Self.FK__Narudzbin__Proda__3E52440B">
+    <AssociationSet Name="FK__Narudzbin__Proda__4D94879B" Association="Self.FK__Narudzbin__Proda__4D94879B">
       <End Role="Prodavac" EntitySet="Prodavac" />
       <End Role="Narudzbina" EntitySet="Narudzbina" />
     </AssociationSet>
-    <AssociationSet Name="FK__Narudzbin__Proiz__4222D4EF" Association="Self.FK__Narudzbin__Proiz__4222D4EF">
+    <AssociationSet Name="FK__Narudzbin__Proiz__5165187F" Association="Self.FK__Narudzbin__Proiz__5165187F">
       <End Role="Proizvod" EntitySet="Proizvod" />
       <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
     </AssociationSet>
-    <EntitySet Name="Users" EntityType="SALES_SYSTEMModel.Users" />
+    <AssociationSet Name="FK__Proizvod__Prodav__49C3F6B7" Association="Self.FK__Proizvod__Prodav__49C3F6B7">
+      <End Role="Prodavac" EntitySet="Prodavac" />
+      <End Role="Proizvod" EntitySet="Proizvod" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>
