@@ -48,7 +48,7 @@ namespace Project
             using (var context = new sales_systemEntities2())
             {
                 Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina);
-                            }
+            }
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

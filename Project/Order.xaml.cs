@@ -23,10 +23,12 @@ namespace Project
     public partial class Order : Page, INotifyPropertyChanged
     {
         public ObservableCollection<NarudzbinaProizvodKupac> narudzbinaProizvodi { get; set; }
+        public ObservableCollection<NarudzbinaDetalji> narudzbineDetalji { get; set; }
         public Order()
         {
             InitializeComponent();
             narudzbinaProizvodi = new ObservableCollection<NarudzbinaProizvodKupac>();
+            narudzbineDetalji = new ObservableCollection<NarudzbinaDetalji>();
             LoadProducts();
             listViewNarudzbine.ItemsSource = narudzbinaProizvodi;
         }
@@ -98,10 +100,13 @@ namespace Project
         }
         private void btnSend(object sender, RoutedEventArgs e)
         {
-
+            string loggedInUsername = Login.LoggedIn;
             using (var context = new sales_systemEntities2())
             {
-                var kupac = context.Kupac.FirstOrDefault(k => k.Korisnici.KorisnikID == k.KorisnikID);
+                var kupac = context.Kupac.FirstOrDefault(k => k.Korisnici.Username == loggedInUsername);
+                string nazivKupca = kupac.FizickoLice != null ? kupac.FizickoLice.Ime : kupac.Firma.Naziv;
+
+
                 var prodavac = context.Prodavac.FirstOrDefault(p => p.Korisnici.KorisnikID == p.KorisnikID);
                 var novaNarudzbina = new Narudzbina
                 {
@@ -113,6 +118,12 @@ namespace Project
                 context.Narudzbina.Add(novaNarudzbina);
                 context.SaveChanges();
 
+                var narudzbinaDetalji = new NarudzbinaDetalji
+                {
+                    NarudzbinaID = novaNarudzbina.NarudzbinaID,
+                    NazivKupca = nazivKupca,
+                    DatumNarudzbine = (DateTime)novaNarudzbina.DatumNarudzbine
+                };
                 foreach (var stavka in narudzbinaProizvodi)
                 {
                     var narudzbinaProizvod = new NarudzbinaProizvod
@@ -129,10 +140,17 @@ namespace Project
                     if (product != null)
                     {
                         product.Kolicina -= stavka.Kolicina;
+                        narudzbinaDetalji.Proizvodi.Add(new NarudzbinaProizvodDetalji
+                        {
+                            NazivProizvoda = product.Naziv,
+                            Kolicina = stavka.Kolicina,
+                            Cena = stavka.Cena
+                        });
                     }
                 }
 
                 context.SaveChanges();
+                narudzbineDetalji.Add(narudzbinaDetalji);
                 MessageBox.Show("Narudžbina je uspešno kreirana");
             }
 
