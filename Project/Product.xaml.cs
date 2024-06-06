@@ -178,12 +178,19 @@ namespace Project
                     MessageBoxResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete proizvod {selectedProduct.Naziv}?", "Potvrda brisanja", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                     if (result == MessageBoxResult.Yes)
                     {
-                        // Obriši proizvod samo ako nije dodat ni u jednu narudžbinu
-                        context.Proizvod.Remove(selectedProduct);
-                        context.SaveChanges();
+                        var productToDelete = context.Proizvod.FirstOrDefault(p => p.ProizvodID == selectedProduct.ProizvodID);
+                        if (productToDelete != null)
+                        {
+                            context.Proizvod.Remove(productToDelete);
+                            context.SaveChanges();
 
-                        proizvodi.Remove(selectedProduct);
-                        MessageBox.Show("Proizvod je uspešno obrisan");
+                            proizvodi.Remove(selectedProduct);
+                            MessageBox.Show("Proizvod je uspešno obrisan");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Proizvod nije pronađen u bazi podataka");
+                        }
                     }
                 }
             }
