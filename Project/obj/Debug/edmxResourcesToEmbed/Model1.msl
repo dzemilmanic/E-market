@@ -44,6 +44,7 @@
     <EntitySetMapping Name="Narudzbina">
       <EntityTypeMapping TypeName="sales_systemModel.Narudzbina">
         <MappingFragment StoreEntitySet="Narudzbina">
+          <ScalarProperty Name="KupacIme" ColumnName="KupacIme" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
           <ScalarProperty Name="KupacID" ColumnName="KupacID" />
@@ -55,6 +56,9 @@
     <EntitySetMapping Name="NarudzbinaProizvod">
       <EntityTypeMapping TypeName="sales_systemModel.NarudzbinaProizvod">
         <MappingFragment StoreEntitySet="NarudzbinaProizvod">
+          <ScalarProperty Name="imeProdavca" ColumnName="imeProdavca" />
+          <ScalarProperty Name="imeProizvoda" ColumnName="imeProizvoda" />
+          <ScalarProperty Name="imeKupca" ColumnName="imeKupca" />
           <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
           <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
           <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
@@ -80,6 +84,19 @@
           <ScalarProperty Name="Cena" ColumnName="Cena" />
           <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
           <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poruka">
+      <EntityTypeMapping TypeName="sales_systemModel.Poruka">
+        <MappingFragment StoreEntitySet="Poruka">
+          <ScalarProperty Name="PrimalacIme" ColumnName="PrimalacIme" />
+          <ScalarProperty Name="PosiljalacIme" ColumnName="PosiljalacIme" />
+          <ScalarProperty Name="DatumSlanja" ColumnName="DatumSlanja" />
+          <ScalarProperty Name="Sadrzaj" ColumnName="Sadrzaj" />
+          <ScalarProperty Name="PrimalacID" ColumnName="PrimalacID" />
+          <ScalarProperty Name="PosiljalacID" ColumnName="PosiljalacID" />
+          <ScalarProperty Name="PorukaID" ColumnName="PorukaID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

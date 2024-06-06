@@ -32,6 +32,8 @@
     <Property Name="Tip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Kupac" Relationship="Self.FK__Kupac__KorisnikI__3F466844" FromRole="Korisnici" ToRole="Kupac" />
     <NavigationProperty Name="Prodavac" Relationship="Self.FK__Prodavac__Korisn__44FF419A" FromRole="Korisnici" ToRole="Prodavac" />
+    <NavigationProperty Name="Poruka" Relationship="sales_systemModel.FK__Poruka__Posiljal__5629CD9C" FromRole="Korisnici" ToRole="Poruka" />
+    <NavigationProperty Name="Poruka1" Relationship="sales_systemModel.FK__Poruka__Primalac__571DF1D5" FromRole="Korisnici" ToRole="Poruka" />
   </EntityType>
   <EntityType Name="Kupac">
     <Key>
@@ -58,6 +60,7 @@
     <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
     <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__4D94879B" FromRole="Narudzbina" ToRole="Prodavac" />
     <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KupacIme" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="NarudzbinaProizvod">
     <Key>
@@ -70,6 +73,9 @@
     <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="Narudzbina" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="NarudzbinaProizvod" ToRole="Narudzbina" />
     <NavigationProperty Name="Proizvod" Relationship="Self.FK__Narudzbin__Proiz__5165187F" FromRole="NarudzbinaProizvod" ToRole="Proizvod" />
+    <Property Name="imeKupca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="imeProizvoda" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="imeProdavca" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Prodavac">
     <Key>
@@ -282,5 +288,52 @@
       <End Role="Prodavac" EntitySet="Prodavac" />
       <End Role="Proizvod" EntitySet="Proizvod" />
     </AssociationSet>
+    <EntitySet Name="Poruka" EntityType="sales_systemModel.Poruka" />
+    <AssociationSet Name="FK__Poruka__Posiljal__5629CD9C" Association="sales_systemModel.FK__Poruka__Posiljal__5629CD9C">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Poruka" EntitySet="Poruka" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Poruka__Primalac__571DF1D5" Association="sales_systemModel.FK__Poruka__Primalac__571DF1D5">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Poruka" EntitySet="Poruka" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Poruka">
+    <Key>
+      <PropertyRef Name="PorukaID" />
+    </Key>
+    <Property Name="PorukaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PosiljalacID" Type="Int32" />
+    <Property Name="PrimalacID" Type="Int32" />
+    <Property Name="Sadrzaj" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DatumSlanja" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Korisnici" Relationship="sales_systemModel.FK__Poruka__Posiljal__5629CD9C" FromRole="Poruka" ToRole="Korisnici" />
+    <NavigationProperty Name="Korisnici1" Relationship="sales_systemModel.FK__Poruka__Primalac__571DF1D5" FromRole="Poruka" ToRole="Korisnici" />
+    <Property Name="PosiljalacIme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PrimalacIme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Poruka__Posiljal__5629CD9C">
+    <End Type="sales_systemModel.Korisnici" Role="Korisnici" Multiplicity="0..1" />
+    <End Type="sales_systemModel.Poruka" Role="Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="PosiljalacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Poruka__Primalac__571DF1D5">
+    <End Type="sales_systemModel.Korisnici" Role="Korisnici" Multiplicity="0..1" />
+    <End Type="sales_systemModel.Poruka" Role="Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="PrimalacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

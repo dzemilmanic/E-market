@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,11 +44,27 @@ namespace Project
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void LoadOrders()
+        public void LoadOrders()
         {
+            string loggedInUsername = Login.LoggedIn;
             using (var context = new sales_systemEntities2())
             {
-                Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina);
+                if (loggedInUsername != null)
+                {
+                    var kupac = context.Kupac.FirstOrDefault(k => k.Korisnici.Username == loggedInUsername);
+                    if (kupac != null)
+                    {
+                        Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina.Where(n => n.KupacID == kupac.KorisnikID));
+                    }
+                    else
+                    {
+                        var prodavac = context.Prodavac.FirstOrDefault(p => p.Korisnici.Username == loggedInUsername);
+                        if (prodavac != null)
+                        {
+                            Narudzbine = new ObservableCollection<Narudzbina>(context.Narudzbina.Where(n => n.NarudzbinaProizvod.Any(np => np.Proizvod.ProdavacID == prodavac.KorisnikID)));
+                        }
+                    }
+                }
             }
         }
 
@@ -55,5 +72,33 @@ namespace Project
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void listViewNarudzbine_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            string loggedInUsername = Login.LoggedIn;
+
+            using (var context = new sales_systemEntities2()) { 
+                if (listViewNarudzbine.SelectedItem != null)
+                {
+                    Narudzbina selectedOrder = (Narudzbina)listViewNarudzbine.SelectedItem;
+
+                    if (loggedInUsername != null)
+                    {
+                        var prodavac = context.Prodavac.FirstOrDefault(p => p.Korisnici.Username == loggedInUsername);
+                        if (prodavac != null)
+                        {
+                            // Otvaranje prozora za promenu statusa samo ako je prodavac ulogovan
+                            ChangeOrderStatus changeStatusWindow = new ChangeOrderStatus(selectedOrder);
+                            changeStatusWindow.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kupci nemaju pristup promeni statusa narudžbine.");
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

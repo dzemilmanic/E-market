@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangeOrderStatus.xaml.cs">
+      <DependentUpon>ChangeOrderStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Firma.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -80,7 +83,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="LoginAuth.cs" />
-    <Compile Include="lvOrders.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,12 +104,14 @@
     <Compile Include="NarudzbinaProizvod.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="lvOrder.cs" />
     <Compile Include="Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
     <Compile Include="Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Poruka.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Prodavac.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -121,9 +125,16 @@
     <Compile Include="Raport.xaml.cs">
       <DependentUpon>Raport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SendMail.xaml.cs">
+      <DependentUpon>SendMail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SendMessage.xaml.cs">
       <DependentUpon>SendMessage.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChangeOrderStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Raport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendMail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

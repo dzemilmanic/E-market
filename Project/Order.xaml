@@ -36,10 +36,12 @@
         <ListView Grid.Row="2" Grid.Column="1" x:Name="listViewNarudzbine" Margin="0,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Kupac" DisplayMemberBinding="{Binding KupacIme}" Width="120"/>
-                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding NazivProizvoda}" Width="120"/>
+                    <GridViewColumn Header="Kupac" DisplayMemberBinding="{Binding imeKupca}" Width="100"/>
+                    <GridViewColumn Header="Proizvod ID" DisplayMemberBinding="{Binding ProizvodID}" Width="100"/>
+                    <GridViewColumn Header="Ime proizvoda" DisplayMemberBinding="{Binding imeProizvoda}" Width="150"/>
                     <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
-                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="60"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="100"/>
+                    <GridViewColumn Header="Ime prodavca" DisplayMemberBinding="{Binding imeProdavca}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>

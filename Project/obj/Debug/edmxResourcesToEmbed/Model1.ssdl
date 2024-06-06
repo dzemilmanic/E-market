@@ -45,6 +45,7 @@
     <Property Name="ProdavacID" Type="int" />
     <Property Name="DatumNarudzbine" Type="datetime" />
     <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="KupacIme" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="NarudzbinaProizvod">
     <Key>
@@ -55,6 +56,21 @@
     <Property Name="ProizvodID" Type="int" Nullable="false" />
     <Property Name="Kolicina" Type="int" />
     <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="imeKupca" Type="varchar" MaxLength="30" />
+    <Property Name="imeProizvoda" Type="varchar" MaxLength="30" />
+    <Property Name="imeProdavca" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Poruka">
+    <Key>
+      <PropertyRef Name="PorukaID" />
+    </Key>
+    <Property Name="PorukaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PosiljalacID" Type="int" />
+    <Property Name="PrimalacID" Type="int" />
+    <Property Name="Sadrzaj" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DatumSlanja" Type="datetime" Nullable="false" />
+    <Property Name="PosiljalacIme" Type="varchar" MaxLength="30" />
+    <Property Name="PrimalacIme" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Prodavac">
     <Key>
@@ -159,6 +175,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Poruka__Posiljal__5629CD9C">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Poruka" Type="Self.Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="PosiljalacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Poruka__Primalac__571DF1D5">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Poruka" Type="Self.Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="PrimalacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Prodavac__FirmaI__46E78A0C">
     <End Role="Firma" Type="Self.Firma" Multiplicity="0..1" />
     <End Role="Prodavac" Type="Self.Prodavac" Multiplicity="*" />
@@ -214,6 +254,7 @@
     <EntitySet Name="Kupac" EntityType="Self.Kupac" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Narudzbina" EntityType="Self.Narudzbina" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NarudzbinaProizvod" EntityType="Self.NarudzbinaProizvod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Poruka" EntityType="Self.Poruka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prodavac" EntityType="Self.Prodavac" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Kupac__FirmaID__412EB0B6" Association="Self.FK__Kupac__FirmaID__412EB0B6">
@@ -243,6 +284,14 @@
     <AssociationSet Name="FK__Narudzbin__Proiz__5165187F" Association="Self.FK__Narudzbin__Proiz__5165187F">
       <End Role="Proizvod" EntitySet="Proizvod" />
       <End Role="NarudzbinaProizvod" EntitySet="NarudzbinaProizvod" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Poruka__Posiljal__5629CD9C" Association="Self.FK__Poruka__Posiljal__5629CD9C">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Poruka" EntitySet="Poruka" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Poruka__Primalac__571DF1D5" Association="Self.FK__Poruka__Primalac__571DF1D5">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Poruka" EntitySet="Poruka" />
     </AssociationSet>
     <AssociationSet Name="FK__Prodavac__FirmaI__46E78A0C" Association="Self.FK__Prodavac__FirmaI__46E78A0C">
       <End Role="Firma" EntitySet="Firma" />

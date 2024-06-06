@@ -36,40 +36,50 @@ namespace Project
 
         private void btnAddProduct(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtProductName.Text))
+            string loggedInUsername = Login.LoggedIn;
+
+            using (var context = new sales_systemEntities2())
             {
-                MessageBox.Show("Morate uneti ime proizvoda");
-            }
-            else if (String.IsNullOrEmpty(txtProductPrice.Text))
-            {
-                MessageBox.Show("Morate uneti cenu proizvoda");
-            }
-            else if (!decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
-            {
-                MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
-                return;
-            }
-            else if (String.IsNullOrEmpty(txtProductQuantity.Text))
-            {
-                MessageBox.Show("Morate uneti kolicinu proizvoda");
-            }
-            else if (!int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
-            {
-                MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
-                return;
-            }
-            else
-            {
-                using (var context = new sales_systemEntities2())
+                var korisnik = context.Korisnici.SingleOrDefault(u => u.Username == loggedInUsername);
+                if (korisnik != null && context.Kupac.Any(k => k.KorisnikID == korisnik.KorisnikID))
+                {
+                    MessageBox.Show("Vi ste kupac i ne možete dodavati nove proizvode");
+                    return;
+                }
+
+                if (String.IsNullOrEmpty(txtProductName.Text))
+                {
+                    MessageBox.Show("Morate uneti ime proizvoda");
+                }
+                else if (String.IsNullOrEmpty(txtProductPrice.Text))
+                {
+                    MessageBox.Show("Morate uneti cenu proizvoda");
+                }
+                else if (!decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
+                {
+                    MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
+                    return;
+                }
+                else if (String.IsNullOrEmpty(txtProductQuantity.Text))
+                {
+                    MessageBox.Show("Morate uneti kolicinu proizvoda");
+                }
+                else if (!int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
+                {
+                    MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
+                    return;
+                }
+                else
                 {
                     if (context.Proizvod.Any(pr => pr.Naziv == txtProductName.Text.Trim()))
                     {
                         MessageBox.Show("Proizvod sa unetim imenom već postoji, ukoliko ste uneli novu cenu ili količinu pokušajte da ažurirate proizvod");
                         return;
                     }
-
+                    var prodavac = context.Prodavac.FirstOrDefault(pr => pr.Korisnici.Username == loggedInUsername);
                     Proizvod p = new Proizvod
                     {
+                        ProdavacID = prodavac.KorisnikID,
                         Naziv = txtProductName.Text.Trim(),
                         Cena = cena,
                         Kolicina = kolicina
@@ -83,6 +93,7 @@ namespace Project
                 }
             }
         }
+
 
         private void LoadProducts()
         {
@@ -111,75 +122,105 @@ namespace Project
         }
         private void btnUpdateProduct(object sender, RoutedEventArgs e)
         {
-            if (lvProducts.SelectedItem != null)
+            string loggedInUsername = Login.LoggedIn;
+
+            using (var context = new sales_systemEntities2())
             {
-                Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
-
-                if (selectedProduct.Naziv != txtProductName.Text.Trim() ||
-                    selectedProduct.Cena != decimal.Parse(txtProductPrice.Text.Trim()) ||
-                    selectedProduct.Kolicina != int.Parse(txtProductQuantity.Text.Trim()))
+                var korisnik = context.Korisnici.SingleOrDefault(u => u.Username == loggedInUsername);
+                if (korisnik != null && context.Kupac.Any(k => k.KorisnikID == korisnik.KorisnikID))
                 {
-                    selectedProduct.Naziv = txtProductName.Text.Trim();
-                    if (decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
+                    MessageBox.Show("Kupci ne mogu ažurirati proizvode.");
+                    return;
+                }
+
+                var prodavac = context.Prodavac.FirstOrDefault(pr => pr.Korisnici.Username == loggedInUsername);
+                
+
+                if (lvProducts.SelectedItem != null)
+                {
+                    Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
+
+                    bool isProductOwnedByLoggedInVendor = selectedProduct.ProdavacID == prodavac.KorisnikID;
+
+                    if (!isProductOwnedByLoggedInVendor)
                     {
-                        selectedProduct.Cena = cena;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
+                        MessageBox.Show("Ne možete ažurirati proizvod koji nije vaš");
                         return;
                     }
 
-                    if (int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
+                    if (selectedProduct.Naziv != txtProductName.Text.Trim() ||
+                        selectedProduct.Cena != decimal.Parse(txtProductPrice.Text.Trim()) ||
+                        selectedProduct.Kolicina != int.Parse(txtProductQuantity.Text.Trim()))
                     {
-                        selectedProduct.Kolicina = kolicina;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
-                        return;
-                    }
+                        selectedProduct.Naziv = txtProductName.Text.Trim();
+                        if (decimal.TryParse(txtProductPrice.Text.Trim(), out decimal cena))
+                        {
+                            selectedProduct.Cena = cena;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cena proizvoda mora biti validan decimalni broj");
+                            return;
+                        }
 
-                    using (var context = new sales_systemEntities2())
-                    {
+                        if (int.TryParse(txtProductQuantity.Text.Trim(), out int kolicina))
+                        {
+                            selectedProduct.Kolicina = kolicina;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Količina proizvoda mora biti validan ceo broj");
+                            return;
+                        }
+
                         context.Entry(selectedProduct).State = EntityState.Modified;
                         context.SaveChanges();
-                    }
 
-                    MessageBox.Show("Proizvod je uspešno ažuriran");
-                    LoadProducts();
+                        MessageBox.Show("Proizvod je uspešno ažuriran");
+                        LoadProducts();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nije izmenjeno ništa. Morate izmeniti barem jedno polje.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Nije izmenjeno ništa. Morate izmeniti barem jedno polje.");
+                    MessageBox.Show("Niste odabrali proizvod za ažuriranje, pokušajte da dodate uneti proizvod");
                 }
             }
-            else
-            {
-                MessageBox.Show("Niste odabrali proizvod za ažuriranje, pokušajte da dodate uneti proizvod");
-            }
         }
+
         private void btnDeleteProduct(object sender, RoutedEventArgs e)
         {
             if (lvProducts.SelectedItem != null)
             {
                 Proizvod selectedProduct = (Proizvod)lvProducts.SelectedItem;
 
+                string loggedInUsername = Login.LoggedIn;
+
                 using (var context = new sales_systemEntities2())
                 {
-                    // Provera da li postoji narudzbina koja koristi izabrani proizvod
-                    var existingOrder = context.NarudzbinaProizvod.Any(np => np.ProizvodID == selectedProduct.ProizvodID);
-                    if (existingOrder)
+                    var kupac = context.Kupac.FirstOrDefault(k => k.Korisnici.Username == loggedInUsername);
+                    if (kupac != null)
                     {
-                        MessageBox.Show("Ne možete obrisati proizvod jer je već dodat u neku narudžbinu.");
+                        MessageBox.Show("Kupci ne mogu brisati proizvode.");
                         return;
                     }
-
-                    MessageBoxResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete proizvod {selectedProduct.Naziv}?", "Potvrda brisanja", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                    if (result == MessageBoxResult.Yes)
+                    var prodavac = context.Prodavac.FirstOrDefault(pr => pr.Korisnici.Username == loggedInUsername);
+                    
+                    var productToDelete = context.Proizvod.FirstOrDefault(p => p.ProizvodID == selectedProduct.ProizvodID);
+                    if (productToDelete != null)
                     {
-                        var productToDelete = context.Proizvod.FirstOrDefault(p => p.ProizvodID == selectedProduct.ProizvodID);
-                        if (productToDelete != null)
+                        var existingOrder = context.NarudzbinaProizvod.Any(np => np.ProizvodID == selectedProduct.ProizvodID);
+                        if (existingOrder)
+                        {
+                            MessageBox.Show("Ne možete obrisati proizvod jer je već dodat u neku narudžbinu.");
+                            return;
+                        }
+
+                        MessageBoxResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete proizvod {selectedProduct.Naziv}?", "Potvrda brisanja", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                        if (result == MessageBoxResult.Yes)
                         {
                             context.Proizvod.Remove(productToDelete);
                             context.SaveChanges();
@@ -187,10 +228,10 @@ namespace Project
                             proizvodi.Remove(selectedProduct);
                             MessageBox.Show("Proizvod je uspešno obrisan");
                         }
-                        else
-                        {
-                            MessageBox.Show("Proizvod nije pronađen u bazi podataka");
-                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proizvod nije pronađen u bazi podataka");
                     }
                 }
             }
@@ -199,6 +240,7 @@ namespace Project
                 MessageBox.Show("Morate odabrati proizvod za brisanje");
             }
         }
+
     }
 }
 

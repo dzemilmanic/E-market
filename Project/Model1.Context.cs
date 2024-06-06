@@ -33,5 +33,6 @@ namespace Project
         public virtual DbSet<NarudzbinaProizvod> NarudzbinaProizvod { get; set; }
         public virtual DbSet<Prodavac> Prodavac { get; set; }
         public virtual DbSet<Proizvod> Proizvod { get; set; }
+        public virtual DbSet<Poruka> Poruka { get; set; }
     }
 }

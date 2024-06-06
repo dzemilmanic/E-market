@@ -14,6 +14,13 @@ namespace Project
     
     public partial class Korisnici
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Korisnici()
+        {
+            this.Poruka = new HashSet<Poruka>();
+            this.Poruka1 = new HashSet<Poruka>();
+        }
+    
         public int KorisnikID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -21,5 +28,9 @@ namespace Project
     
         public virtual Kupac Kupac { get; set; }
         public virtual Prodavac Prodavac { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Poruka> Poruka { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Poruka> Poruka1 { get; set; }
     }
 }

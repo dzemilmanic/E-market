@@ -10,29 +10,43 @@
       Background="White"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid Margin="10">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" >
-            <TextBlock Text="Pošalji e-mail" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
-        FontWeight="Bold" Padding="10"/>
+        <StackPanel Grid.Row="0" Orientation="Vertical" >
+            <TextBlock Text="Pošaljite poruku" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+            FontWeight="Bold" Padding="10"/>
         </StackPanel>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <TextBlock Margin="5" Text="Unesite e-mail:"/>
-            <TextBox Margin="5" Padding="0,5" Width="550" BorderThickness="0,0,0,1"/>
+        <StackPanel Grid.Row="1" Margin="10,0,0,0">
+            <TextBlock Text="Unesite tekst poruke:"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" >
-            <TextBlock Margin="5" Text="Unesite poruku:"/>
-            <TextBox Margin="5" Padding="0,5" Width="550" BorderThickness="1,1,1,1"/>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="3" >
-            <Button Content="Posalji e-mail" Style="{StaticResource ButtonStyle}" Tag="150" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="7, 0, 0, 5">
+            <TextBox x:Name="tbMessageContent" Width="400" Margin="5" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <ComboBox x:Name="cbRecipients" Width="100" Margin="5" Height="30" DisplayMemberPath="Username" SelectedValuePath="KorisnikID"
+                      HorizontalContentAlignment="Center" FontWeight="Medium" FontSize="15"/>
+            <StackPanel Orientation="Vertical" >
+                <Button Content="Pošalji poruku" Margin="20,15,0,0" Click="btnSendMessage_Click" Style="{StaticResource ButtonStyle}" Tag="100"/>
+                <Button Content="Pošalji email" Margin="20,15,0,0" Click="btnSendEmail_Click" Style="{StaticResource ButtonStyle}" Tag="100"/>
+            </StackPanel>
+            </StackPanel>
+        <StackPanel Grid.Row="3" Margin="10,0,0,0">
+            <TextBlock Text="Vaše poruke:"/>
         </StackPanel>
 
+        <ListView x:Name="lvMessages" Grid.Row="4" ItemsSource="{Binding Poruke}" Margin="7">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Posiljalac" DisplayMemberBinding="{Binding PosiljalacIme}" Width="100"/>
+                    <GridViewColumn Header="Primalac" DisplayMemberBinding="{Binding PrimalacIme}" Width="100"/>
+                    <GridViewColumn Header="Sadržaj" DisplayMemberBinding="{Binding Sadrzaj}" Width="300"/>
+                    <GridViewColumn Header="Datum slanja" DisplayMemberBinding="{Binding DatumSlanja}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

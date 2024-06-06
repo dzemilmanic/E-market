@@ -25,6 +25,7 @@ namespace Project
         public Nullable<int> ProdavacID { get; set; }
         public Nullable<System.DateTime> DatumNarudzbine { get; set; }
         public string Status { get; set; }
+        public string KupacIme { get; set; }
     
         public virtual Kupac Kupac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

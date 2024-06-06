@@ -63,28 +63,7 @@
                     Background="Black"
                     Margin="0,25"
                     Height="35"
-                    Width="250">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="LoginBorder" Background="{TemplateBinding Background}"
-                                            CornerRadius="16">
-                                        <ContentPresenter HorizontalAlignment="Center" 
-                                                          VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="gray" TargetName="LoginBorder"  />
-                                            <Setter Property="TextBlock.Foreground" Value="Black"  TargetName="LoginBorder" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+                    Style="{StaticResource ButtonStyle}" Tag="250">
             </Button>
         </StackPanel>
     </Border>

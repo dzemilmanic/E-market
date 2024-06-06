@@ -18,13 +18,14 @@
             <TextBlock Text="Vaše narudžbine" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
                 FontWeight="Bold" Padding="10"/>
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}">
+        <ListView Grid.Row="1" x:Name="listViewNarudzbine" ItemsSource="{Binding Narudzbine}" MouseDoubleClick="listViewNarudzbine_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Narudzbina ID" DisplayMemberBinding="{Binding NarudzbinaID}" Width="150"/>
-                    <GridViewColumn Header="Kupac ID" DisplayMemberBinding="{Binding KupacID}" Width="150"/>
-                    <GridViewColumn Header="Datum narudžbine" DisplayMemberBinding="{Binding DatumNarudzbine}" Width="150"/>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="150"/>
+                    <GridViewColumn Header="Narudzbina ID" DisplayMemberBinding="{Binding NarudzbinaID}" Width="100"/>
+                    <GridViewColumn Header="Kupac ID" DisplayMemberBinding="{Binding KupacID}" Width="100"/>
+                    <GridViewColumn Header="Ime kupca" DisplayMemberBinding="{Binding KupacIme}" Width="150"/>
+                    <GridViewColumn Header="Datum narudžbine" DisplayMemberBinding="{Binding DatumNarudzbine}" Width="180"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>

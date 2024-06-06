@@ -12,17 +12,17 @@ namespace Project
     using System;
     using System.Collections.Generic;
     
-    public partial class NarudzbinaProizvod
+    public partial class Poruka
     {
-        public int NarudzbinaID { get; set; }
-        public int ProizvodID { get; set; }
-        public Nullable<int> Kolicina { get; set; }
-        public Nullable<decimal> Cena { get; set; }
-        public string imeKupca { get; set; }
-        public string imeProizvoda { get; set; }
-        public string imeProdavca { get; set; }
+        public int PorukaID { get; set; }
+        public Nullable<int> PosiljalacID { get; set; }
+        public Nullable<int> PrimalacID { get; set; }
+        public string Sadrzaj { get; set; }
+        public System.DateTime DatumSlanja { get; set; }
+        public string PosiljalacIme { get; set; }
+        public string PrimalacIme { get; set; }
     
-        public virtual Narudzbina Narudzbina { get; set; }
-        public virtual Proizvod Proizvod { get; set; }
+        public virtual Korisnici Korisnici { get; set; }
+        public virtual Korisnici Korisnici1 { get; set; }
     }
 }
