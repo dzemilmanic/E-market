@@ -113,6 +113,7 @@ namespace Project
                     DatumNarudzbine = DateTime.Now,
                     KupacID = kupac.KorisnikID,
                     ProdavacID = prodavac.KorisnikID,
+                    Status = "Primljeno"
                 };
 
                 context.Narudzbina.Add(novaNarudzbina);

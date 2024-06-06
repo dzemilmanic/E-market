@@ -44,6 +44,7 @@
     <Property Name="KupacID" Type="int" />
     <Property Name="ProdavacID" Type="int" />
     <Property Name="DatumNarudzbine" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="NarudzbinaProizvod">
     <Key>

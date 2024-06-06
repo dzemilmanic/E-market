@@ -57,6 +57,7 @@
     <NavigationProperty Name="Kupac" Relationship="Self.FK__Narudzbin__Kupac__4CA06362" FromRole="Narudzbina" ToRole="Kupac" />
     <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
     <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__4D94879B" FromRole="Narudzbina" ToRole="Prodavac" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="NarudzbinaProizvod">
     <Key>

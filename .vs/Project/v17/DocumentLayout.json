@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\orders.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\order.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\order.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\loginauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\loginauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\lvorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\lvorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\order.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\order.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\orders.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\raport.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\raport.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\order.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\order.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\loginauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\loginauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,52 +30,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Product.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
-              "RelativeDocumentMoniker": "Project\\Product.xaml.cs",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
-              "RelativeToolTip": "Project\\Product.xaml.cs",
-              "ViewState": "AQIAAJ8AAAAAAAAAAADwv6QAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T12:43:14.826Z",
+              "Title": "Orders.xaml",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml",
+              "RelativeDocumentMoniker": "Project\\Orders.xaml",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml",
+              "RelativeToolTip": "Project\\Orders.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T12:59:31.402Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "Order.xaml",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Order.xaml",
+              "RelativeDocumentMoniker": "Project\\Order.xaml",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Order.xaml",
+              "RelativeToolTip": "Project\\Order.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T12:59:09.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Orders.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml.cs",
               "RelativeDocumentMoniker": "Project\\Orders.xaml.cs",
               "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Orders.xaml.cs",
               "RelativeToolTip": "Project\\Orders.xaml.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAIA4wC8AAAAlAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAWwC8AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T12:43:11.891Z"
+              "WhenOpened": "2024-06-06T12:43:11.891Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\App.config",
-              "RelativeDocumentMoniker": "Project\\App.config",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\App.config",
-              "RelativeToolTip": "Project\\App.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-06-06T12:42:48.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "LoginAuth.cs",
               "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\LoginAuth.cs",
               "RelativeDocumentMoniker": "Project\\LoginAuth.cs",
@@ -95,54 +79,21 @@
               "RelativeToolTip": "Project\\LoginAuth.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAWwAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T12:42:23.785Z"
+              "WhenOpened": "2024-06-06T12:42:23.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Raport.xaml",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Raport.xaml",
-              "RelativeDocumentMoniker": "Project\\Raport.xaml",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Raport.xaml",
-              "RelativeToolTip": "Project\\Raport.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-06T12:40:15.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Order.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Order.xaml.cs",
               "RelativeDocumentMoniker": "Project\\Order.xaml.cs",
               "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Order.xaml.cs",
               "RelativeToolTip": "Project\\Order.xaml.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAewGcAAAAlAAAA",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAwwJcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T12:00:28.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "lvOrders.cs",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\lvOrders.cs",
-              "RelativeDocumentMoniker": "Project\\lvOrders.cs",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\lvOrders.cs",
-              "RelativeToolTip": "Project\\lvOrders.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAADwvwoAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T11:23:06.536Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Model1.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Model1.edmx",
-              "RelativeDocumentMoniker": "Project\\Model1.edmx",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Model1.edmx [Diagram1]",
-              "RelativeToolTip": "Project\\Model1.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-06-06T10:56:59.788Z",
-              "EditorCaption": " [Diagram1]"
+              "WhenOpened": "2024-06-06T12:00:28.49Z",
+              "EditorCaption": ""
             }
           ]
         }

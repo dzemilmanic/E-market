@@ -40,7 +40,6 @@
                     <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding NazivProizvoda}" Width="120"/>
                     <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="60"/>
                     <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="60"/>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="60"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -49,6 +49,7 @@
           <Property Name="KupacID" Type="int" />
           <Property Name="ProdavacID" Type="int" />
           <Property Name="DatumNarudzbine" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="NarudzbinaProizvod">
           <Key>
@@ -326,6 +327,7 @@
           <NavigationProperty Name="Kupac" Relationship="Self.FK__Narudzbin__Kupac__4CA06362" FromRole="Narudzbina" ToRole="Kupac" />
           <NavigationProperty Name="NarudzbinaProizvod" Relationship="Self.FK__Narudzbin__Narud__5070F446" FromRole="Narudzbina" ToRole="NarudzbinaProizvod" />
           <NavigationProperty Name="Prodavac" Relationship="Self.FK__Narudzbin__Proda__4D94879B" FromRole="Narudzbina" ToRole="Prodavac" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="NarudzbinaProizvod">
           <Key>
@@ -600,6 +602,7 @@
           <EntitySetMapping Name="Narudzbina">
             <EntityTypeMapping TypeName="sales_systemModel.Narudzbina">
               <MappingFragment StoreEntitySet="Narudzbina">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
                 <ScalarProperty Name="KupacID" ColumnName="KupacID" />
                 <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />

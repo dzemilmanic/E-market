@@ -44,6 +44,7 @@
     <EntitySetMapping Name="Narudzbina">
       <EntityTypeMapping TypeName="sales_systemModel.Narudzbina">
         <MappingFragment StoreEntitySet="Narudzbina">
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="NarudzbinaID" ColumnName="NarudzbinaID" />
           <ScalarProperty Name="KupacID" ColumnName="KupacID" />
           <ScalarProperty Name="ProdavacID" ColumnName="ProdavacID" />
