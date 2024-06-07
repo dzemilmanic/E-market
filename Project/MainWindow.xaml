@@ -17,13 +17,14 @@
             <TextBlock x:Name="tbOption" Text="" FontSize="10" Margin="5" HorizontalAlignment="Center"/>
             <Image Source="Images/logo.png" Height="70" Width="100" Margin="5" HorizontalAlignment="Center"/>
             <Button Content="Početna" x:Name="HomeBtn" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnHome"/>
+            <Button Content="Proizvodi" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnProduct"/>
             <Button Content="Nova narudžbina" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnOrder"/>
             <Button Content="Vaše narudžbine" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnOrders"/>
-            <Button Content="Proizvodi" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnProduct"/>
             <Button Content="Kontakt" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnSendMess"/>
             <Button Content="Izveštaj" Style="{StaticResource ButtonStyleBar}" Tag="100" Click="btnRaport"/>
-
+            <Button Content="Odjavite se" Style="{StaticResource ButtonStyleBar}" Background="AliceBlue" Tag="100" Click="btnOdjava"/>
         </StackPanel>
+        
         <Frame x:Name="showPage" Grid.Column="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

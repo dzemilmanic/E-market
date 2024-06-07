@@ -7,9 +7,39 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Raport"
-      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      Background="White">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="auto"/>
+
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" >
+            <TextBlock Text="{Binding RaportText}" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+            FontWeight="Bold" Padding="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="15">
+            <TextBlock Text="{Binding StatusText}" FontSize="15"/>
+            <TextBox x:Name="txtTotalSales" Text="{Binding TotalSales}" FontSize="15"/>
+        </StackPanel>
+        <ListView x:Name="lvOrderedProducts" Grid.Row="2" Margin="10" Width="auto">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ime Kupca" DisplayMemberBinding="{Binding imeKupca}" Width="120"/>
+                    <GridViewColumn Header="Proizvod" DisplayMemberBinding="{Binding imeProizvoda}" Width="150"/>
+                    <GridViewColumn Header="Količina" DisplayMemberBinding="{Binding Kolicina}" Width="100"/>
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="100"/>
+                    <GridViewColumn Header="Ime Prodavca" DisplayMemberBinding="{Binding imeProdavca}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="3">
+            <Button Content="Generiši izveštaj" Click="btnGenerateReport" Style="{StaticResource ButtonStyle}" Tag="250"/>
+        </StackPanel>
     </Grid>
 </Page>

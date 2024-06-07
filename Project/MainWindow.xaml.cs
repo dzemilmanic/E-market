@@ -100,6 +100,13 @@ namespace Project
             Raport r = new Raport();
             showPage.Content = r;
         }
+        private void btnOdjava(object sender, RoutedEventArgs e)
+        {
+            Login l = new Login();
+            l.Show();
+            this.Close();
+           
+        }
     }
     
 }
