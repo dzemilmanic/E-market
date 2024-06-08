@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="ChangeOrderStatus" Height="200" Width="300"
+        MinHeight="200" MinWidth="300" MaxHeight="200" MaxWidth="300"
         WindowStartupLocation="CenterScreen"
         Background="#708090">
 

@@ -23,13 +23,13 @@ namespace Project
     /// </summary>
     public partial class Orders : Page, INotifyPropertyChanged
     {
-        private ObservableCollection<Narudzbina> _narudzbine;
+        private ObservableCollection<Narudzbina> narudzbine;
         public ObservableCollection<Narudzbina> Narudzbine
         {
-            get { return _narudzbine; }
+            get { return narudzbine; }
             set
             {
-                _narudzbine = value;
+                narudzbine = value;
                 OnPropertyChanged(nameof(Narudzbine));
             }
         }
@@ -87,13 +87,12 @@ namespace Project
                         var prodavac = context.Prodavac.FirstOrDefault(p => p.Korisnici.Username == loggedInUsername);
                         if (prodavac != null)
                         {
-                            // Otvaranje prozora za promenu statusa samo ako je prodavac ulogovan
                             ChangeOrderStatus changeStatusWindow = new ChangeOrderStatus(selectedOrder);
                             changeStatusWindow.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("Kupci nemaju pristup promeni statusa narudžbine.");
+                            MessageBox.Show("Kupci nemaju pristup promeni statusa narudžbine");
                         }
                     }
                 }

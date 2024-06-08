@@ -6,27 +6,17 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="Login" Height="400" Width="300"
+        MinHeight="400" MinWidth="300" MaxHeight="400" MaxWidth="300"
         WindowStartupLocation="CenterScreen">
     <Border Width="300"
             Height="400"
             Background="White"
             CornerRadius="6">
         <Border.Effect>
-            <DropShadowEffect BlurRadius="15"
-                              Direction ="-90" 
-                              RenderingBias ="Quality" 
-                              ShadowDepth ="2" 
-                              Color ="Gray" />
+            <DropShadowEffect BlurRadius="15" Direction ="-90" RenderingBias ="Quality" ShadowDepth ="2" Color ="Gray" />
         </Border.Effect>
-        <StackPanel Orientation="Vertical"
-                    Margin="20">
-            <TextBlock Text="Prijavi se" 
-                       FontSize="25"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Top"
-                       FontWeight="Bold"
-                       Padding="10"
-                       />
+        <StackPanel Orientation="Vertical" Margin="20">
+            <TextBlock Text="Prijavi se" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Padding="10"/>
             <Grid VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -34,37 +24,12 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Korisničko ime" 
-                   Grid.Row="0"
-                   Margin="0,15"
-                   HorizontalAlignment="Left"/>
-                <TextBox Grid.Column="1"
-                  Grid.Row="1"
-                  x:Name="tbUsername"
-                  Padding="0,5"
-                  Width="255"
-                  BorderThickness="0,0,0,1"
-                  HorizontalAlignment="Left"/>
-                <TextBlock Text="Lozinka" 
-                   Grid.Row="2"
-                   Margin="0,15"
-                   HorizontalAlignment="Left"/>
-                <PasswordBox Grid.Row="3"
-                      Padding="0,5"
-                      x:Name="tbPassword"
-                      Width="255"
-                      BorderThickness="0,0,0,1"
-                      HorizontalAlignment="Left"/>
+                <TextBlock Text="Korisničko ime" Grid.Row="0" Margin="0,15" HorizontalAlignment="Left"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="tbUsername" Padding="0,5" Width="255" BorderThickness="0,0,0,1" HorizontalAlignment="Left"/>
+                <TextBlock Text="Lozinka" Grid.Row="2" Margin="0,15" HorizontalAlignment="Left"/>
+                <PasswordBox Grid.Row="3" Padding="0,5" x:Name="tbPassword" Width="255" BorderThickness="0,0,0,1" HorizontalAlignment="Left"/>
             </Grid>
-            <Button x:Name="LoginBtn"
-                    Click="LoginBtn_Click"
-                    Content="Prijavi se" 
-                    Foreground="White"
-                    Background="Black"
-                    Margin="0,25"
-                    Height="35"
-                    Style="{StaticResource ButtonStyle}" Tag="250">
-            </Button>
+            <Button x:Name="LoginBtn" Click="LoginBtn_Click" Content="Prijavi se" Margin="0,25" Height="35" Style="{StaticResource ButtonStyle}" Tag="250"/>
         </StackPanel>
     </Border>
 </Window>

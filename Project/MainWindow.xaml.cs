@@ -23,7 +23,7 @@ namespace Project
         public MainWindow()
         {
             InitializeComponent();
-            tbOption.Text = "";
+            tbOption.Text = Login.LoggedIn;
             Home h = new Home();
             showPage.Content = h;
         }
