@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\sendmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\sendmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\proizvod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\proizvod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\product.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\project\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SendMessage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\SendMessage.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\SendMessage.xaml.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\SendMessage.xaml.cs",
+              "RelativeToolTip": "Project\\SendMessage.xaml.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T10:11:47.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Proizvod.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Proizvod.cs",
+              "RelativeDocumentMoniker": "Project\\Proizvod.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Proizvod.cs",
+              "RelativeToolTip": "Project\\Proizvod.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T09:58:59.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\Product.xaml.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\Product.xaml.cs",
+              "RelativeToolTip": "Project\\Product.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T09:58:31.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Project\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T09:37:17.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Project\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\MainWindow.xaml",
+              "RelativeToolTip": "Project\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-12T09:37:00.551Z"
             }
           ]
         }
