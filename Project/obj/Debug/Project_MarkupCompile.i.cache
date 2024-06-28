@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nazim\Desktop\Džemil\GitHub\Csharp-project\Csharp-project\Project\App.xaml
-10-1145016203
-2-1957146511
-28-504358442
+101872166319
+2739969757
+28841269202
 18-1727845003
-ChangeOrderStatus.xaml;Home.xaml;Login.xaml;MainWindow.xaml;Order.xaml;Orders.xaml;Product.xaml;Raport.xaml;SendMail.xaml;SendMessage.xaml;
+View\ChangeOrderStatus.xaml;View\Home.xaml;View\Login.xaml;View\MainWindow.xaml;View\Order.xaml;View\Orders.xaml;View\Product.xaml;View\Raport.xaml;View\SendMail.xaml;View\SendMessage.xaml;
 
 True
 

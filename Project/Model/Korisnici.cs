@@ -7,31 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project
+namespace Project.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Prodavac
+    public partial class Korisnici
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Prodavac()
+        public Korisnici()
         {
-            this.Narudzbina = new HashSet<Narudzbina>();
-            this.Proizvod = new HashSet<Proizvod>();
+            this.Poruka = new HashSet<Poruka>();
+            this.Poruka1 = new HashSet<Poruka>();
         }
     
         public int KorisnikID { get; set; }
-        public string TipProdavca { get; set; }
-        public Nullable<int> FizickoLiceID { get; set; }
-        public Nullable<int> FirmaID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Tip { get; set; }
     
-        public virtual Firma Firma { get; set; }
-        public virtual FizickoLice FizickoLice { get; set; }
-        public virtual Korisnici Korisnici { get; set; }
+        public virtual Kupac Kupac { get; set; }
+        public virtual Prodavac Prodavac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narudzbina> Narudzbina { get; set; }
+        public virtual ICollection<Poruka> Poruka { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proizvod> Proizvod { get; set; }
+        public virtual ICollection<Poruka> Poruka1 { get; set; }
     }
 }
