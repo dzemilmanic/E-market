@@ -12,7 +12,7 @@
     <Grid>
         <StackPanel>
             <Image Source="Images/logo.png" Height="300" Width="300" Margin="10" HorizontalAlignment="Center"/>
-            <TextBlock Text="Dobro došli u e-commerc" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
+            <TextBlock Text="Dobro došli u e-market" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"
                 FontWeight="Bold" Padding="10"/>
         </StackPanel>
         

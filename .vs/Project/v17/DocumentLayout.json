@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\",
+  "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\csharp-project\\project\\view\\sendmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\project\\view\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\view\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\csharp-project\\project\\view\\sendmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{513ADBA7-FE6F-4872-AB6A-C765885A6EE0}|Project\\Project.csproj|solutionrelative:project\\view\\sendmessage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,10 +27,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Home.xaml",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Project\\View\\Home.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\Home.xaml",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Project\\View\\Home.xaml",
+              "RelativeToolTip": "Project\\View\\Home.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-28T17:58:21.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "SendMessage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\View\\SendMessage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Project\\View\\SendMessage.xaml.cs",
               "RelativeDocumentMoniker": "Project\\View\\SendMessage.xaml.cs",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Csharp-project\\Project\\View\\SendMessage.xaml.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Csharp-project\\Project\\View\\SendMessage.xaml.cs",
               "RelativeToolTip": "Project\\View\\SendMessage.xaml.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAQwB4AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
